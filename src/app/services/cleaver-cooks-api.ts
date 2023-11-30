@@ -6,7 +6,7 @@ export class CleaverCooksApi {
     public constructor(private apollo : Apollo) {
     }
 
-    public getAllIngredients() : Promise<unknown> {
+    public getAllIngredients() : Promise<any[]> {
         return new Promise((resolve, reject) => {
             try {
                 const query = gql`
@@ -24,7 +24,7 @@ export class CleaverCooksApi {
                     if (error) {
                         reject(error);
                     } else {
-                        resolve(data);
+                        resolve((data as any).getAllIngredients);
                     }
                 });
             } catch (error) {
