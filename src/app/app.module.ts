@@ -8,19 +8,23 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 import { IngredientsPickerComponent } from './fragments/ingredients-picker/ingredients-picker.component';
+import { IngredientsAddComponent } from './fragments/ingredients-add/ingredients-add.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     NotFoundPageComponent,
-    IngredientsPickerComponent
+    IngredientsPickerComponent,
+    IngredientsAddComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     GraphQLModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

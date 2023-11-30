@@ -12,7 +12,6 @@ export class CleaverCooksApi {
                 const query = gql`
                     query GetAllIngredients {
                         getAllIngredients {
-                            quantity
                             name
                             id
                         }
@@ -39,7 +38,6 @@ export class CleaverCooksApi {
               createIngredient(name: $name) {
                 id
                 name
-                quantity
               }
             }
         `;
