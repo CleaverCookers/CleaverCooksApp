@@ -1,4 +1,3 @@
-import { ApolloQueryResult } from "@apollo/client";
 import { Apollo, gql } from "apollo-angular";
 
 export class CleaverCooksApi {
