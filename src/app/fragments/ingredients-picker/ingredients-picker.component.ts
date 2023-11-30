@@ -10,15 +10,19 @@ import { CleaverCooksApi } from 'src/app/services/cleaver-cooks-api';
 export class IngredientsPickerComponent implements OnInit {
 
   constructor(private apollo : Apollo) { }
-  
-  public ingredients = [];
+
+  public ingredients:any[] = [];
+  public addIngredientShowing = false;
 
   ngOnInit(): void {
     new CleaverCooksApi(this.apollo).getAllIngredients().then((data) => {
-      console.log(data);
+      this.ingredients = data;
     }).catch((error) => {
       console.error(error);
     });
   }
 
+  showAddIngredient(){
+    this.addIngredientShowing = !this.addIngredientShowing;
+  }
 }

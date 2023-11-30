@@ -1,1 +1,7 @@
 <p>ingredients-picker works!</p>
+<a *ngFor="let ingredient of ingredients ">
+  <div>{{ ingredient.toString() }}</div>
+</a>
+<a (click)="showAddIngredient()">
+  <div>+</div>
+</a>

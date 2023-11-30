@@ -32,4 +32,24 @@ export class CleaverCooksApi {
             }
         });
     }
+
+    public addIngredient(name:String){
+      const query = gql`
+            mutation CreateIngredient($name: String!) {
+              createIngredient(name: $name) {
+                id
+                name
+                quantity
+              }
+            }
+        `;
+      this.apollo.mutate({mutation:query, variables:{ name:name }}) .subscribe(
+        ({ data }) => {
+          console.log('got data', data);
+        },
+        error => {
+          console.log('there was an error sending the query', error);
+        },
+      );
+    }
 }
