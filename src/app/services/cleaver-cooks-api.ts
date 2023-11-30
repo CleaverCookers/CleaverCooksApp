@@ -1,28 +1,35 @@
 import { Apollo, gql } from "apollo-angular";
 
 export class CleaverCooksApi {
-    static readonly BACKEND_API_URL:string = 'localhost:3000';
+    static readonly BACKEND_API_URL:string = './graphql';
 
-    public getAllIngredients(apollo : Apollo) : Promise<unknown> {
+    public constructor(private apollo : Apollo) {
+    }
+
+    public getAllIngredients() : Promise<unknown> {
         return new Promise((resolve, reject) => {
-            const query = gql`
-                query GetAllIngredients {
-                    getAllIngredients {
-                        quantity
-                        name
-                        id
+            try {
+                const query = gql`
+                    query GetAllIngredients {
+                        getAllIngredients {
+                            quantity
+                            name
+                            id
+                        }
                     }
-                }
-            `;
-            apollo.watchQuery({
-                query: query
-            }).valueChanges.subscribe(({data, error}) => {
-                if (error) {
-                    reject(error);
-                } else {
-                    resolve(data);
-                }
-            });
+                `;
+                this.apollo.watchQuery({
+                    query: query
+                }).valueChanges.subscribe(({data, error}) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        resolve(data);
+                    }
+                });
+            } catch (error) {
+                reject(error);
+            }
         });
     }
 }

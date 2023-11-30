@@ -7,12 +7,14 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
+import { IngredientsPickerComponent } from './fragments/ingredients-picker/ingredients-picker.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    IngredientsPickerComponent
   ],
   imports: [
     BrowserModule,
