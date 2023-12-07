@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Apollo} from "apollo-angular";
+import {CleaverCooksApi} from "../../services/cleaver-cooks-api";
 
 @Component({
   selector: 'app-my-ingredients-page',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-ingredients-page.component.scss']
 })
 export class MyIngredientsPageComponent implements OnInit {
+  constructor(private apollo : Apollo) { }
 
-  constructor() { }
+  public ingredients:any[] = [];
 
   ngOnInit(): void {
+    new CleaverCooksApi(this.apollo).getAllIngredients().then((data) => {
+      console.log(data);
+      this.ingredients = data;
+    }).catch((error) => {
+      console.error(error);
+    });
   }
-
 }
