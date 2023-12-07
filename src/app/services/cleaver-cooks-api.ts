@@ -1,8 +1,6 @@
 import { Apollo, gql } from "apollo-angular";
 
 export class CleaverCooksApi {
-    static readonly BACKEND_API_URL:string = './graphql';
-
     public constructor(private apollo : Apollo) {
     }
 

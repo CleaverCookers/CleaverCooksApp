@@ -2,9 +2,9 @@ import {NgModule} from '@angular/core';
 import {ApolloModule, APOLLO_OPTIONS} from 'apollo-angular';
 import {ApolloClientOptions, InMemoryCache} from '@apollo/client/core';
 import {HttpLink} from 'apollo-angular/http';
-import { CleaverCooksApi } from './services/cleaver-cooks-api';
+import { environment } from './../environments/environment';
 
-const uri = CleaverCooksApi.BACKEND_API_URL;
+const uri = environment.backendApiUrl;
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
   return {
     link: httpLink.create({uri}),
