@@ -12,6 +12,7 @@ import { IngredientsAddComponent } from './fragments/ingredients-add/ingredients
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {MatIconModule} from "@angular/material/icon";
     HttpClientModule,
     ReactiveFormsModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
