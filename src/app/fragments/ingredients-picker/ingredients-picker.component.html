@@ -1,10 +1,10 @@
-<h2>Select an ingredient :</h2>
-<a *ngFor="let ingredient of ingredients ">
+<h4>Select an ingredient :</h4>
+<a *ngFor="let ingredient of ingredients " (click)="selectIngredient(ingredient)">
   <div>{{ ingredient.name }}</div>
 </a>
 <a (click)="showAddIngredient()">
   <div>+</div>
 </a>
 <div *ngIf="addIngredientShowing">
-  <app-ingredients-add></app-ingredients-add>
+  <app-ingredients-add (onSubmittedIngredient)="onIngredientAdded($event)"></app-ingredients-add>
 </div>
