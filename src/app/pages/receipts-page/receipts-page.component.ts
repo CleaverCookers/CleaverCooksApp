@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Apollo} from "apollo-angular";
+import {CleaverCooksApi} from "../../services/cleaver-cooks-api";
 
 @Component({
   selector: 'app-receipts-page',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReceiptsPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private apollo:Apollo) { }
 
   ngOnInit(): void {
+    new CleaverCooksApi(this.apollo).getAllRecipes()
   }
 
 }
