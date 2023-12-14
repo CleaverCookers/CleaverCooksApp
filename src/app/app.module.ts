@@ -15,6 +15,8 @@ import { MyIngredientsPageComponent } from './pages/my-ingredients-page/my-ingre
 import { BottomBarComponent } from './fragments/bottom-bar/bottom-bar.component';
 import {ReceiptsNewPageComponent} from "./pages/receipts-new-page/receipts-new-page.component";
 import {ElementPickerComponent} from "./fragments/element-picker/element-picker.component";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import {ElementPickerComponent} from "./fragments/element-picker/element-picker.
     AppRoutingModule,
     GraphQLModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
