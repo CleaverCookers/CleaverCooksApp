@@ -2,6 +2,8 @@ import {Component, EventEmitter, Output} from '@angular/core';
 import {Ingredient} from "../../models/ingredient";
 import {FormBuilder} from "@angular/forms";
 import {Element} from "../../models/element";
+import {MatDialogRef} from "@angular/material/dialog";
+import {MatBottomSheetRef} from "@angular/material/bottom-sheet";
 
 @Component({
   selector: 'app-element-picker',
@@ -9,8 +11,7 @@ import {Element} from "../../models/element";
   styleUrls: ['./element-picker.component.scss']
 })
 export class ElementPickerComponent {
-  @Output() onSubmittedElement: EventEmitter<Element> = new EventEmitter<Element>();
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,public dialogRef: MatBottomSheetRef<ElementPickerComponent,Element>) {
   }
   public ingredient:Ingredient|undefined;
   public form = this.formBuilder.group({
@@ -26,6 +27,6 @@ export class ElementPickerComponent {
   onSubmit() {
     if(this.form.value.quantity == null || this.ingredient == undefined) return;
     let element = new Element(this.form.value.quantity!!,this.ingredient!!)
-    this.onSubmittedElement.emit(element);
+    this.dialogRef.dismiss(element);
   }
 }

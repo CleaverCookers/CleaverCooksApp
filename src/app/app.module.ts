@@ -17,6 +17,10 @@ import {ReceiptsNewPageComponent} from "./pages/receipts-new-page/receipts-new-p
 import {ElementPickerComponent} from "./fragments/element-picker/element-picker.component";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
+import {MatBottomSheetModule} from "@angular/material/bottom-sheet";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatDialog, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -38,9 +42,12 @@ import {MatIconModule} from "@angular/material/icon";
     HttpClientModule,
     ReactiveFormsModule,
     MatToolbarModule,
-    MatIconModule
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatBottomSheetModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
