@@ -23,7 +23,7 @@ export class CleaverCooksApi {
           if (error) {
             reject(error);
           } else {
-            resolve((data as any).getAllIngredients);
+            resolve((data as any).getAllIngredients.map((data: { id: string; name: string; }) => {return new Ingredient(data.id,data.name)}));
           }
         });
       } catch (error) {
@@ -32,7 +32,7 @@ export class CleaverCooksApi {
     });
   }
 
-  public addIngredient(name: String) {
+  public addIngredient(name: string):Promise<Ingredient> {
     return new Promise((resolve, reject) => {
       const query = gql`
               mutation CreateIngredient($name: String!) {
@@ -45,13 +45,13 @@ export class CleaverCooksApi {
         if (result.errors) {
           reject(result.errors);
         } else {
-          resolve(result.data);
+          resolve(new Ingredient((result.data as any).createIngredient.id,name));
         }
       });
     });
   }
 
-  public deleteIngredient(id: String) {
+  public deleteIngredient(id: string) {
     return new Promise((resolve, reject) => {
       const query = gql`
               mutation DeleteIngredient($id: String!) {
@@ -70,7 +70,7 @@ export class CleaverCooksApi {
     });
   }
 
-  public updateIngredient(id: String, name: String) {
+  public updateIngredient(id: string, name: string) {
     return new Promise((resolve, reject) => {
       const query = gql`
               mutation UpdateIngredient($id: String!, $name: String!) {

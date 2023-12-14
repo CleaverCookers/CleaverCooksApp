@@ -13,6 +13,8 @@ import { ReceiptsPageComponent } from './pages/receipts-page/receipts-page.compo
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { MyIngredientsPageComponent } from './pages/my-ingredients-page/my-ingredients-page.component';
 import { BottomBarComponent } from './fragments/bottom-bar/bottom-bar.component';
+import {ReceiptsNewPageComponent} from "./pages/receipts-new-page/receipts-new-page.component";
+import {ElementPickerComponent} from "./fragments/element-picker/element-picker.component";
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { BottomBarComponent } from './fragments/bottom-bar/bottom-bar.component'
     IngredientsPickerComponent,
     IngredientsAddComponent,
     ReceiptsPageComponent,
+    ReceiptsNewPageComponent,
+    ElementPickerComponent,
     SearchPageComponent,
     MyIngredientsPageComponent,
     BottomBarComponent
