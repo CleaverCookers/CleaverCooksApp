@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { IngredientsPickerComponent } from './fragments/ingredients-picker/ingredients-picker.component';
 import { IngredientsAddComponent } from './fragments/ingredients-add/ingredients-add.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import {ReactiveFormsModule} from "@angular/forms";
     AppRoutingModule,
     GraphQLModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
