@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import { CleaverCooksApi } from 'src/app/services/cleaver-cooks-api';
+import {Ingredient} from "../../models/ingredient";
 
 @Component({
   selector: 'app-ingredients-picker',
@@ -8,10 +9,10 @@ import { CleaverCooksApi } from 'src/app/services/cleaver-cooks-api';
   styleUrls: ['./ingredients-picker.component.scss']
 })
 export class IngredientsPickerComponent implements OnInit {
-
+  @Output() onSelectedIngredients: EventEmitter<Ingredient> = new EventEmitter<Ingredient>();
   constructor(private apollo : Apollo) { }
 
-  public ingredients:any[] = [];
+  public ingredients:Ingredient[] = [];
   public addIngredientShowing = false;
 
   ngOnInit(): void {
@@ -24,5 +25,14 @@ export class IngredientsPickerComponent implements OnInit {
 
   showAddIngredient(){
     this.addIngredientShowing = !this.addIngredientShowing;
+  }
+
+  onIngredientAdded(ingredient:Ingredient){
+    console.log("Ingredient added"+ingredient)
+    this.ingredients.push(ingredient);
+  }
+
+  selectIngredient(ingredient:Ingredient){
+    this.onSelectedIngredients.emit(ingredient);
   }
 }
