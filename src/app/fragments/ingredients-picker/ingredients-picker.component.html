@@ -3,10 +3,7 @@
   <div>{{ ingredient.name }}</div>
 </a>
 <a (click)="showAddIngredient()">
-  <button class="fab-bottom" mat-fab color="primary" aria-label="Example icon button with a delete icon">
-    <mat-icon>add</mat-icon>
-  </button>
-
+  <div>+</div>
 </a>
 <div *ngIf="addIngredientShowing">
   <app-ingredients-add (onSubmittedIngredient)="onIngredientAdded($event)"></app-ingredients-add>
