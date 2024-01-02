@@ -21,7 +21,7 @@ export class IngredientsAddComponent implements OnInit {
   }
 
   async onSubmit() {
-    let createdIngredient = await new CleaverCooksApi(this.apollo).addIngredient(this.form.value.title!);
+    let createdIngredient = await new CleaverCooksApi(this.apollo).createIngredient(this.form.value.title!);
     this.onSubmittedIngredient.emit(createdIngredient)
   }
 }
