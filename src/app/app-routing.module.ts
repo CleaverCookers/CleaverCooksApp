@@ -6,15 +6,17 @@ import {SearchPageComponent} from "./pages/search-page/search-page.component";
 import {MyIngredientsPageComponent} from "./pages/my-ingredients-page/my-ingredients-page.component";
 import {CreateNewRecipePage} from "./pages/create-new-recipe-page/create-new-recipe-page";
 import {RecipeEditPageComponent} from "./pages/recipe-edit-page/recipe-edit-page.component";
+import {RecipePageComponent} from "./pages/recipe-page/recipe-page.component";
 
 const routes: Routes = [
-    {path: 'receipts/new', component: CreateNewRecipePage},
-    {path: 'receipts/:id', component: RecipeEditPageComponent},
-    {path: 'receipts', component: ReceiptsPageComponent},
+    {path: 'recipes/new', component: CreateNewRecipePage},
+    {path: 'recipes/:id/edit', component: RecipeEditPageComponent},
+    {path: 'recipes/:id', component: RecipePageComponent},
+    {path: 'recipes', component: ReceiptsPageComponent},
     {path: 'search', component: SearchPageComponent},
     {path: 'my-ingredients', component: MyIngredientsPageComponent},
     {path: '404', component: NotFoundPageComponent},
-    {path: '', redirectTo: '/receipts', pathMatch: 'full'},
+    {path: '', redirectTo: '/recipes', pathMatch: 'full'},
     {path: '**', component: NotFoundPageComponent}
 ];
 

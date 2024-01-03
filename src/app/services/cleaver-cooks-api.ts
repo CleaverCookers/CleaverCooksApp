@@ -253,7 +253,7 @@ export class CleaverCooksApi {
   public deleteRecipe(id: string) {
     return new Promise((resolve, reject) => {
       const query = gql`
-              mutation DeleteRecipe($id: String!) {
+              mutation DeleteRecipe($id: ID!) {
                 deleteRecipe(id: $id)
               }
           `;

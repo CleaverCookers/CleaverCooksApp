@@ -22,6 +22,7 @@ import {MatBottomSheetModule} from "@angular/material/bottom-sheet";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatDialog, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import { RecipeEditPageComponent } from './pages/recipe-edit-page/recipe-edit-page.component';
+import { RecipePageComponent } from './pages/recipe-page/recipe-page.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { RecipeEditPageComponent } from './pages/recipe-edit-page/recipe-edit-pa
     SearchPageComponent,
     MyIngredientsPageComponent,
     BottomBarComponent,
-    RecipeEditPageComponent
+    RecipeEditPageComponent,
+    RecipePageComponent
   ],
   imports: [
     BrowserModule,

@@ -22,6 +22,6 @@ export class CreateNewRecipePage {
   async onSubmit() {
       if (this.form.value.name == null) return;
       let recipe = await this.api.createRecipe(this.form.value.name, this.form.value.description, null);
-      await this.router.navigate(['/receipts', recipe.id]);
+      await this.router.navigate(['recipes', recipe.id, 'edit']);
   }
 }

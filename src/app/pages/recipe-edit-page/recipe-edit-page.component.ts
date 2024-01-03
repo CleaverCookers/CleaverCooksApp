@@ -14,9 +14,9 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./recipe-edit-page.component.scss']
 })
 export class RecipeEditPageComponent implements OnInit{
-  constructor(private formBuilder: FormBuilder, private apollo:Apollo, private route: ActivatedRoute,private _bottomSheet: MatBottomSheet) {
-    this.api = new CleaverCooksApi(this.apollo);
-    this.recipe = new Recipe(this.route.snapshot.params['id'],"","","",[]);
+  constructor(private formBuilder: FormBuilder, apollo:Apollo, route: ActivatedRoute,private _bottomSheet: MatBottomSheet) {
+    this.api = new CleaverCooksApi(apollo);
+    this.recipe = new Recipe(route.snapshot.params['id'],"","","",[]);
     this.form = this.formBuilder.group(this.recipe);
   }
   async ngOnInit(): Promise<void> {
