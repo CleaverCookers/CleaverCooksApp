@@ -13,7 +13,7 @@ import { ReceiptsPageComponent } from './pages/receipts-page/receipts-page.compo
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { MyIngredientsPageComponent } from './pages/my-ingredients-page/my-ingredients-page.component';
 import { BottomBarComponent } from './fragments/bottom-bar/bottom-bar.component';
-import {ReceiptsNewPageComponent} from "./pages/receipts-new-page/receipts-new-page.component";
+import {CreateNewRecipePage} from "./pages/create-new-recipe-page/create-new-recipe-page";
 import {ElementPickerComponent} from "./fragments/element-picker/element-picker.component";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
@@ -21,6 +21,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatBottomSheetModule} from "@angular/material/bottom-sheet";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatDialog, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
+import { RecipeEditPageComponent } from './pages/recipe-edit-page/recipe-edit-page.component';
 
 @NgModule({
   declarations: [
@@ -29,11 +30,12 @@ import {MatDialog, MatDialogModule, MatDialogRef} from "@angular/material/dialog
     IngredientsPickerComponent,
     IngredientsAddComponent,
     ReceiptsPageComponent,
-    ReceiptsNewPageComponent,
+    CreateNewRecipePage,
     ElementPickerComponent,
     SearchPageComponent,
     MyIngredientsPageComponent,
-    BottomBarComponent
+    BottomBarComponent,
+    RecipeEditPageComponent
   ],
   imports: [
     BrowserModule,

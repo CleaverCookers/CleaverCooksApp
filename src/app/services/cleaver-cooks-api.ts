@@ -102,11 +102,11 @@ export class CleaverCooksApi {
     });
   }
 
-  public getRecipe(id: string): Promise<Recipe> {
+  public getRecipe(id: string): Promise<Recipe|null> {
     return new Promise((resolve, reject) => {
       try {
         const query = gql`
-                    query GetRecipe($id: String!) {
+                    query GetRecipe($id: ID!) {
                       getRecipe(id: $id) {
                         elements {
                           amount
@@ -131,6 +131,10 @@ export class CleaverCooksApi {
             reject(error);
           } else {
             let queryData = (data as any).getRecipe;
+            if(queryData == null){
+              resolve(null);
+              return;
+            }
             resolve(new Recipe(queryData.id, queryData.name, queryData.description, queryData.instructions, queryData.elements.map((data: { id: string; amount: number; ingredient: { id: string; name: string; }; }) => {
               return new Element(data.id, data.amount, new Ingredient(data.ingredient.id, data.ingredient.name));
             })));
@@ -200,7 +204,7 @@ export class CleaverCooksApi {
     });
   }
 
-  public createRecipe(name: string, description: string, instructions: string) : Promise<Recipe>{
+  public createRecipe(name: string, description: string|undefined|null, instructions: string|undefined|null) : Promise<Recipe>{
     return new Promise((resolve, reject) => {
       const query = gql`
               mutation CreateRecipe($name: String!, $instructions: String, $description: String) {
@@ -223,10 +227,10 @@ export class CleaverCooksApi {
     });
   }
 
-  public updateRecipe(id: string, name: string, description: string, instructions: string) : Promise<Recipe> {
+  public updateRecipe(id: string, name: string, description: string|undefined|null, instructions: string|undefined|null) : Promise<Recipe> {
     return new Promise((resolve, reject) => {
       const query = gql`
-              mutation UpdateRecipe($id: String!, $name: String!, $instructions: String, $description: String) {
+              mutation UpdateRecipe($id: ID!, $name: String!, $instructions: String, $description: String) {
                 updateRecipe(id: $id, name: $name, instructions: $instructions, description: $description) {
                   id
                   description
