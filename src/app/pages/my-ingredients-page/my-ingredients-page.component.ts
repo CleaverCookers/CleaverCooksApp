@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {Apollo} from "apollo-angular";
 import {CleaverCooksApi} from "../../services/cleaver-cooks-api";
+import {LocalCookerPreferences} from "../../services/local-cooker-preferences";
+import {MatBottomSheet} from "@angular/material/bottom-sheet";
+import {
+  AddIngredientBottomSheetComponent
+} from "../../fragments/add-ingredient-bottom-sheet/add-ingredient-bottom-sheet.component";
 
 @Component({
   selector: 'app-my-ingredients-page',
@@ -8,16 +13,22 @@ import {CleaverCooksApi} from "../../services/cleaver-cooks-api";
   styleUrls: ['./my-ingredients-page.component.scss']
 })
 export class MyIngredientsPageComponent implements OnInit {
-  constructor(private apollo : Apollo) { }
+  constructor(private apollo : Apollo, private bottomSheet: MatBottomSheet) { }
 
   public ingredients:any[] = [];
 
-  ngOnInit(): void {
-    new CleaverCooksApi(this.apollo).getAllIngredients().then((data) => {
-      console.log(data);
-      this.ingredients = data;
-    }).catch((error) => {
-      console.error(error);
+  async ngOnInit(): Promise<void> {
+    let allIngredients = await new CleaverCooksApi(this.apollo).getAllIngredients();
+    this.ingredients = LocalCookerPreferences.getMyIngredients(allIngredients);
+  }
+
+  showAddIngredientBottomSheet() {
+    const bottomSheetRef = this.bottomSheet.open(AddIngredientBottomSheetComponent);
+    bottomSheetRef.afterDismissed().subscribe((ingredient)=>{
+      if(ingredient != undefined){
+        this.ingredients.push(ingredient);
+        LocalCookerPreferences.setMyIngredients(this.ingredients);
+      }
     });
   }
 }

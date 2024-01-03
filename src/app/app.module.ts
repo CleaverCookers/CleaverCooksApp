@@ -23,6 +23,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatDialog, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import { RecipeEditPageComponent } from './pages/recipe-edit-page/recipe-edit-page.component';
 import { RecipePageComponent } from './pages/recipe-page/recipe-page.component';
+import { AddIngredientBottomSheetComponent } from './fragments/add-ingredient-bottom-sheet/add-ingredient-bottom-sheet.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { RecipePageComponent } from './pages/recipe-page/recipe-page.component';
     MyIngredientsPageComponent,
     BottomBarComponent,
     RecipeEditPageComponent,
-    RecipePageComponent
+    RecipePageComponent,
+    AddIngredientBottomSheetComponent
   ],
   imports: [
     BrowserModule,
