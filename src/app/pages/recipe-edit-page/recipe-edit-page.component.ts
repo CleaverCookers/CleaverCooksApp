@@ -4,7 +4,7 @@ import {Apollo} from "apollo-angular";
 import {MatBottomSheet} from "@angular/material/bottom-sheet";
 import {CleaverCooksApi} from "../../services/cleaver-cooks-api";
 import {Element} from "../../models/element";
-import {ElementPickerComponent} from "../../fragments/element-picker/element-picker.component";
+import {ElementBottomSheetComponent} from "../../fragments/element-picker/element-bottom-sheet.component";
 import {Recipe} from "../../models/recipe";
 import {ActivatedRoute} from "@angular/router";
 
@@ -48,7 +48,7 @@ export class RecipeEditPageComponent implements OnInit{
   }
 
   showEditElementBottomSheet(element: Element) {
-    const bottomSheetRef = this._bottomSheet.open(ElementPickerComponent, {
+    const bottomSheetRef = this._bottomSheet.open(ElementBottomSheetComponent, {
         data: element
     });
     bottomSheetRef.afterDismissed().subscribe((elementModified:Element)=>{
@@ -83,7 +83,7 @@ export class RecipeEditPageComponent implements OnInit{
   }
 
   showNewElementBottomSheet() {
-    const bottomSheetRef = this._bottomSheet.open(ElementPickerComponent, {
+    const bottomSheetRef = this._bottomSheet.open(ElementBottomSheetComponent, {
         data: null
     });
     bottomSheetRef.afterDismissed().subscribe((element)=>{

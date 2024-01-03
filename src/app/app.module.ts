@@ -14,7 +14,7 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { MyIngredientsPageComponent } from './pages/my-ingredients-page/my-ingredients-page.component';
 import { BottomBarComponent } from './fragments/bottom-bar/bottom-bar.component';
 import {CreateNewRecipePage} from "./pages/create-new-recipe-page/create-new-recipe-page";
-import {ElementPickerComponent} from "./fragments/element-picker/element-picker.component";
+import {ElementBottomSheetComponent} from "./fragments/element-picker/element-bottom-sheet.component";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
@@ -33,7 +33,7 @@ import { AddIngredientBottomSheetComponent } from './fragments/add-ingredient-bo
     IngredientsAddComponent,
     ReceiptsPageComponent,
     CreateNewRecipePage,
-    ElementPickerComponent,
+    ElementBottomSheetComponent,
     SearchPageComponent,
     MyIngredientsPageComponent,
     BottomBarComponent,

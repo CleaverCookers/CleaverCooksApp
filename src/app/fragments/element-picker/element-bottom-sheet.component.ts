@@ -12,11 +12,11 @@ import {Apollo} from "apollo-angular";
  */
 @Component({
   selector: 'app-element-picker',
-  templateUrl: './element-picker.component.html',
-  styleUrls: ['./element-picker.component.scss']
+  templateUrl: './element-bottom-sheet.component.html',
+  styleUrls: ['./element-bottom-sheet.component.scss']
 })
-export class ElementPickerComponent {
-  constructor(private formBuilder: FormBuilder, public dialogRef: MatBottomSheetRef<ElementPickerComponent, Element>, @Inject(MAT_BOTTOM_SHEET_DATA) public data: Element|null) {
+export class ElementBottomSheetComponent {
+  constructor(private formBuilder: FormBuilder, public dialogRef: MatBottomSheetRef<ElementBottomSheetComponent, Element>, @Inject(MAT_BOTTOM_SHEET_DATA) public data: Element|null) {
     this.ingredient = data?.ingredient;
     this.form = this.formBuilder.group({
       quantity: data?.amount ?? 30,
