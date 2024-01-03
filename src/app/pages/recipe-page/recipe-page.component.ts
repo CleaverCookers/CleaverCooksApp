@@ -6,6 +6,9 @@ import {MatBottomSheet} from "@angular/material/bottom-sheet";
 import {CleaverCooksApi} from "../../services/cleaver-cooks-api";
 import {Recipe} from "../../models/recipe";
 
+/**
+ * The page that allows the user to view a recipe.
+ */
 @Component({
   selector: 'app-recipe-page',
   templateUrl: './recipe-page.component.html',

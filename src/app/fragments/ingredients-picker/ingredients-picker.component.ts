@@ -3,6 +3,9 @@ import { Apollo } from 'apollo-angular';
 import { CleaverCooksApi } from 'src/app/services/cleaver-cooks-api';
 import {Ingredient} from "../../models/ingredient";
 
+/**
+ * A simple ingredient picker that allows the user to select an ingredient from a list. When an ingredient is selected, it is emitted to the parent component.
+ */
 @Component({
   selector: 'app-ingredients-picker',
   templateUrl: './ingredients-picker.component.html',

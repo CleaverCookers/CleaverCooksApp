@@ -3,6 +3,9 @@ import {Apollo} from "apollo-angular";
 import {CleaverCooksApi} from "../../services/cleaver-cooks-api";
 import {Recipe} from "../../models/recipe";
 
+/**
+ * The page that allows the user to view all recipes.
+ */
 @Component({
   selector: 'app-receipts-page',
   templateUrl: './receipts-page.component.html',

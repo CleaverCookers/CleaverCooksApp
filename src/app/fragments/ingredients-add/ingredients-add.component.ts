@@ -4,6 +4,9 @@ import {CleaverCooksApi} from "../../services/cleaver-cooks-api";
 import {Apollo} from "apollo-angular";
 import {Ingredient} from "../../models/ingredient";
 
+/**
+ * A simple form to add an ingredient.
+ */
 @Component({
   selector: 'app-ingredients-add',
   templateUrl: './ingredients-add.component.html',

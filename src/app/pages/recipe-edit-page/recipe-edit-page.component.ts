@@ -8,6 +8,9 @@ import {ElementPickerComponent} from "../../fragments/element-picker/element-pic
 import {Recipe} from "../../models/recipe";
 import {ActivatedRoute} from "@angular/router";
 
+/**
+ * The page that allows the user to edit a recipe by adding, removing, and editing elements or changing the name and description.
+ */
 @Component({
   selector: 'app-recipe-edit-page',
   templateUrl: './recipe-edit-page.component.html',

@@ -7,6 +7,9 @@ import {
   AddIngredientBottomSheetComponent
 } from "../../fragments/add-ingredient-bottom-sheet/add-ingredient-bottom-sheet.component";
 
+/**
+ * The page that allows the user to view and edit their ingredients.
+ */
 @Component({
   selector: 'app-my-ingredients-page',
   templateUrl: './my-ingredients-page.component.html',

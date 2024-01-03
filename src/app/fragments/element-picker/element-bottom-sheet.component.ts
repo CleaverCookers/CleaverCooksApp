@@ -7,6 +7,9 @@ import {MAT_BOTTOM_SHEET_DATA, MatBottomSheetRef} from "@angular/material/bottom
 import {CleaverCooksApi} from "../../services/cleaver-cooks-api";
 import {Apollo} from "apollo-angular";
 
+/**
+ * A bottom sheet that allows the user to pick an ingredient and quantity. It can be based on an existing element (modify) or create a new one.
+ */
 @Component({
   selector: 'app-element-picker',
   templateUrl: './element-picker.component.html',

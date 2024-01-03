@@ -3,6 +3,10 @@ import {FormBuilder} from "@angular/forms";
 import {Apollo} from "apollo-angular";
 import {CleaverCooksApi} from "../../services/cleaver-cooks-api";
 import {Router} from "@angular/router";
+
+/**
+ * The page that allows the user to create a new recipe and redirect to the edit page.
+ */
 @Component({
   selector: 'app-create-new-recipe-page',
   templateUrl: './create-new-recipe-page.html',

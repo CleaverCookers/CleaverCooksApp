@@ -3,6 +3,9 @@ import {MatBottomSheetRef} from "@angular/material/bottom-sheet";
 import {Element} from "../../models/element";
 import {Ingredient} from "../../models/ingredient";
 
+/**
+ * A simple wrapper for the add ingredient picker to be used as a bottom sheet.
+ */
 @Component({
   selector: 'app-add-ingredient-bottom-sheet',
   templateUrl: './add-ingredient-bottom-sheet.component.html',

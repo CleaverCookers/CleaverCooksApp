@@ -3,6 +3,9 @@ import {Recipe} from "../models/recipe";
 import {Element} from "../models/element";
 import {Ingredient} from "../models/ingredient";
 
+/**
+ * The API for interacting with the Cleaver Cooks backend.
+ */
 export class CleaverCooksApi {
   public constructor(private apollo: Apollo) {
   }
