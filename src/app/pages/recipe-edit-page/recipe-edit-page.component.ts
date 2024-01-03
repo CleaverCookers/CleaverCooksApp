@@ -36,10 +36,6 @@ export class RecipeEditPageComponent implements OnInit{
 
   private api:CleaverCooksApi;
 
-  addElement(element:Element){
-    console.log("Adding element : "+element)
-    this.recipe.elements.push(element);
-  }
   async onSubmit() {
     if (this.form.value.name == null) return;
     let modifiedRecipe = await this.api.updateRecipe(this.recipe.id, this.form.value.name, this.form.value.description, this.form.value.instructions);
@@ -48,14 +44,48 @@ export class RecipeEditPageComponent implements OnInit{
     this.recipe.instructions = modifiedRecipe.instructions;
   }
 
-  editElement(element: Element) {
-
+  showEditElementBottomSheet(element: Element) {
+    const bottomSheetRef = this._bottomSheet.open(ElementPickerComponent, {
+        data: element
+    });
+    bottomSheetRef.afterDismissed().subscribe((elementModified:Element)=>{
+      if(elementModified != undefined){
+        if(element.ingredient.id == elementModified.ingredient.id) {
+          elementModified.id = element.id;
+          this.editElement(elementModified).then(()=> {
+            element.amount = elementModified.amount;
+          });
+        }else{
+          this.removeElement(element).then(()=> {
+            this.addElement(elementModified);
+          });
+        }
+      }
+    });
   }
 
-  showElementPicker() {
-    const bottomSheetRef = this._bottomSheet.open(ElementPickerComponent, {});
+  async addElement(element: Element) {
+    let elementAdded = await this.api.addIngredientToRecipe(this.recipe.id, element.ingredient.id, element.amount);
+    this.recipe.elements.push(elementAdded);
+  }
+
+  async editElement(element: Element) {
+    let elementAdded = await this.api.updateIngredientInRecipe(element.id, element.amount)
+  }
+  async removeElement(element: Element) {
+    await this.api.removeIngredientFromRecipe(element.id);
+    this.recipe.elements = this.recipe.elements.filter((elementInRecipe) => {
+      return elementInRecipe.id != element.id;
+    });
+  }
+
+  showNewElementBottomSheet() {
+    const bottomSheetRef = this._bottomSheet.open(ElementPickerComponent, {
+        data: null
+    });
     bottomSheetRef.afterDismissed().subscribe((element)=>{
-      console.log("Dismissed"+element)
+      if(element != undefined)
+        this.addElement(element);
     });
   }
 }

@@ -281,7 +281,7 @@ export class CleaverCooksApi {
                 }
               }
           `;
-      this.apollo.mutate({mutation: query, variables: {recipeId: recipeId, element: {ingredientId: ingredientId, amount: amount}}}).subscribe(result => {
+      this.apollo.mutate({mutation: query, variables: {recipeId: recipeId, element: {id: ingredientId, amount: amount}}}).subscribe(result => {
         if (result.errors) {
           reject(result.errors);
         } else {
@@ -312,10 +312,10 @@ export class CleaverCooksApi {
   public updateIngredientInRecipe(elementId: string, amount: number) : Promise<Element> {
     return new Promise((resolve, reject) => {
       const query = gql`
-              mutation UpdateIngredientInRecipe($updateIngredientInRecipeElement: ElementInput!) {
-                updateIngredientInRecipe(element: $updateIngredientInRecipeElement) {
-                  amount
+              mutation UpdateIngredientInRecipe($element: ElementInput!) {
+                updateIngredientInRecipe(element: $element) {
                   id
+                  amount
                   ingredient {
                     id
                     name
@@ -323,14 +323,14 @@ export class CleaverCooksApi {
                 }
               }
           `;
-      this.apollo.mutate({mutation: query, variables: {updateIngredientInRecipeElement: {id: elementId, amount: amount}}}).subscribe(result => {
-        if (result.errors) {
-          reject(result.errors);
-        } else {
-          let queryData = (result.data as any).updateIngredientInRecipe;
-          resolve(new Element(queryData.id, queryData.amount, new Ingredient(queryData.ingredient.id, queryData.ingredient.name)));
-        }
-      });
+        this.apollo.mutate({mutation: query, variables: {element: {id: elementId, amount: amount}}}).subscribe(result => {
+            if (result.errors) {
+                reject(result.errors);
+            } else {
+                let queryData = (result.data as any).updateIngredientInRecipe;
+                resolve(new Element(queryData.id, queryData.amount, new Ingredient(queryData.ingredient.id, queryData.ingredient.name)));
+            }
+        });
     });
   }
 }

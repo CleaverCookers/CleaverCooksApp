@@ -2,6 +2,6 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   Ingredient : <a (click)="pickerDisplayed=true">{{ ingredient?.name ?? "Sélectionner un ingredient" }}</a>
   <app-ingredients-picker *ngIf="pickerDisplayed" (onSelectedIngredients)="changeIngredient($event)"></app-ingredients-picker>
-  Quantity : <input formControlName="quantity">
+  Quantity : <input type="number" formControlName="quantity"> (gr)
   <button class="button" type="submit">Save</button>
 </form>

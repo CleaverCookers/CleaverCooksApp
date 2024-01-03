@@ -11,9 +11,10 @@
     <div *ngFor="let element of recipe.elements">
       {{ element.ingredient.name }}
       {{ element.amount }}
-      <button (click)="editElement(element)">Edit</button>
+      <button (click)="showEditElementBottomSheet(element)">Edit</button>
+      <button (click)="removeElement(element)">Delete</button>
     </div>
-    <button (click)="showElementPicker()">Add ingredient</button>
+    <button (click)="showNewElementBottomSheet()">Add ingredient</button>
     <!--<app-element-picker *ngIf="elementPickerDisplayed" (onSubmittedElement)="addElement($event)"></app-element-picker>-->
   </div>
 </div>
