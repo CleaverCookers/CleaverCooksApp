@@ -24,6 +24,8 @@ import {MatDialog, MatDialogModule, MatDialogRef} from "@angular/material/dialog
 import { RecipeEditPageComponent } from './pages/recipe-edit-page/recipe-edit-page.component';
 import { RecipePageComponent } from './pages/recipe-page/recipe-page.component';
 import { AddIngredientBottomSheetComponent } from './fragments/add-ingredient-bottom-sheet/add-ingredient-bottom-sheet.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { AddIngredientBottomSheetComponent } from './fragments/add-ingredient-bo
     MatIconModule,
     MatDialogModule,
     MatButtonModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   bootstrap: [AppComponent]
 })
