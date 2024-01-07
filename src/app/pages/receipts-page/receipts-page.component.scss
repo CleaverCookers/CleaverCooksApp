@@ -6,7 +6,8 @@
   margin: 1rem 0;
 }
 
-mat-card-title, mat-card {
+mat-card {
+  margin-bottom: 0.5rem;
   &:hover {
     cursor: pointer;
   }
