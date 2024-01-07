@@ -1,10 +1,10 @@
-<h1>Recipes</h1>
-<div *ngIf="recipes == undefined">
+<h2>Recipes</h2>
+<div *ngIf="recipes == undefined" id="recipe-not-found">
   No recipe found
 </div>
 <div *ngIf="recipes != undefined">
-  <div *ngFor="let recipe of recipes">
-    <a routerLink="/recipes/{{recipe.id}}">{{recipe.name}}</a>
-  </div>
+  <mat-card *ngFor="let recipe of recipes" routerLink="/recipes/{{recipe.id}}">
+    <mat-card-title>{{recipe.name}}</mat-card-title>
+  </mat-card>
 </div>
-<a routerLink="/recipes/new">Add a new one</a>
+<a mat-raised-button routerLink="/recipes/new" id="margin-button">Add a new one</a>

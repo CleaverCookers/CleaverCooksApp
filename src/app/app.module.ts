@@ -30,6 +30,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatChipsModule} from "@angular/material/chips";
 import {MatSelectModule} from "@angular/material/select";
 import {MatListModule} from "@angular/material/list";
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import {MatListModule} from "@angular/material/list";
     MatInputModule,
     MatChipsModule,
     MatSelectModule,
-    MatListModule
+    MatListModule,
+    MatCardModule
   ],
   bootstrap: [AppComponent]
 })
