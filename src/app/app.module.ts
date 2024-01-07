@@ -13,6 +13,7 @@ import { ReceiptsPageComponent } from './pages/receipts-page/receipts-page.compo
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { MyIngredientsPageComponent } from './pages/my-ingredients-page/my-ingredients-page.component';
 import { BottomBarComponent } from './fragments/bottom-bar/bottom-bar.component';
+import { TopBarComponent } from './fragments/top-bar/top-bar.component';
 import {CreateNewRecipePage} from "./pages/create-new-recipe-page/create-new-recipe-page";
 import {ElementBottomSheetComponent} from "./fragments/element-picker/element-bottom-sheet.component";
 import {MatToolbarModule} from "@angular/material/toolbar";
@@ -42,6 +43,7 @@ import {MatListModule} from "@angular/material/list";
     SearchPageComponent,
     MyIngredientsPageComponent,
     BottomBarComponent,
+    TopBarComponent,
     RecipeEditPageComponent,
     RecipePageComponent,
     AddIngredientBottomSheetComponent
