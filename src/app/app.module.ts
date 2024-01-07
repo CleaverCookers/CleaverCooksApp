@@ -31,6 +31,7 @@ import {MatChipsModule} from "@angular/material/chips";
 import {MatSelectModule} from "@angular/material/select";
 import {MatListModule} from "@angular/material/list";
 import {MatCardModule} from "@angular/material/card";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import {MatCardModule} from "@angular/material/card";
     MatChipsModule,
     MatSelectModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatProgressSpinnerModule
   ],
   bootstrap: [AppComponent]
 })

@@ -28,14 +28,16 @@
           </li>
       </ul>
   </div>
-  <div *ngIf="recipe.instructions == null">
+  <div *ngIf="recipe.instructions == null" class="centred">
       <h2>Aucunes étapes</h2>
   </div>
+</div>
 
-</div>
-<div *ngIf="!this.isInit">
+<div *ngIf="!this.isInit" class="centred">
     <h1>Chargement...</h1>
+    <mat-spinner></mat-spinner>
 </div>
-<div *ngIf="this.isInit && !this.isFound">
+
+<div *ngIf="this.isInit && !this.isFound" class="centred">
     <h1>Recette non trouvée!</h1>
 </div>
