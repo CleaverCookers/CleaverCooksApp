@@ -1,8 +1,15 @@
 <h2>My ingredients</h2>
 <div>
-  <div *ngFor="let ingredient of ingredients ">
-    <div>{{ ingredient.name }}</div>
-    <button (click)="deleteIngredient(ingredient)">Delete</button>
-  </div>
-  <button (click)="showAddIngredientBottomSheet()">Add ingredient</button>
+  <mat-list role="list" *ngFor="let ingredient of ingredients ">
+    <mat-list-item role="listitem" >
+      <div id="list-item">
+        {{ ingredient.name }}
+        <button mat-icon-button (click)="deleteIngredient(ingredient)" color="warn"><mat-icon>delete</mat-icon></button>
+      </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </mat-list>
+  <button id="mat-fab" mat-fab color="primary" (click)="showAddIngredientBottomSheet()">
+    <mat-icon>add</mat-icon>
+  </button>
 </div>

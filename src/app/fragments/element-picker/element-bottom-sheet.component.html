@@ -1,7 +1,13 @@
 <h3>New element in recipe</h3>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-  Ingredient : <a (click)="pickerDisplayed=true">{{ ingredient?.name ?? "Sélectionner un ingredient" }}</a>
+  Ingredient :
+  <a mat-button (click)="pickerDisplayed=true">{{ ingredient?.name ?? "Sélectionner un ingredient" }}</a>
+
   <app-ingredients-picker *ngIf="pickerDisplayed" (onSelectedIngredients)="changeIngredient($event)"></app-ingredients-picker>
-  Quantity : <input type="number" formControlName="quantity"> (gr)
-  <button class="button" type="submit">Save</button>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Quantity (gr)</mat-label>
+    <input matInput type="number" formControlName="quantity">
+  </mat-form-field>
+  <button mat-raised-button color="primary" class="button" type="submit">Save</button>
 </form>

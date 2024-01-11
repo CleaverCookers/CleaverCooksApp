@@ -1,0 +1,20 @@
+#recipe-not-found {
+  text-align: center;
+}
+
+#mat-fab {
+  right: 16px;
+  position: fixed;
+  bottom: 96px;
+}
+
+mat-card {
+  margin-bottom: 0.5rem;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+mat-card-title {
+  font-size: 1rem;
+}

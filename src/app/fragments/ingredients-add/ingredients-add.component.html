@@ -1,5 +1,8 @@
 <h3>Add a new ingredient</h3>
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-  Title : <input type="text" formControlName="title">
-  <button class="button" type="submit">Add</button>
+<form class="example-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>Title</mat-label>
+    <input matInput type="text" formControlName="title">
+  </mat-form-field>
+  <button mat-raised-button class="button" type="submit">Add</button>
 </form>

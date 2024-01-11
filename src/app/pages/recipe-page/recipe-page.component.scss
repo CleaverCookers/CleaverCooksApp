@@ -1,0 +1,19 @@
+mat-icon {
+ font-size: 0.9rem;
+}
+
+#ingredients {
+  display: flex;
+  column-gap: 1rem;
+}
+
+#ingredients-list {
+  margin: 1rem 0;
+}
+
+.centred {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

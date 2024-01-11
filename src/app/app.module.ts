@@ -13,6 +13,7 @@ import { ReceiptsPageComponent } from './pages/receipts-page/receipts-page.compo
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { MyIngredientsPageComponent } from './pages/my-ingredients-page/my-ingredients-page.component';
 import { BottomBarComponent } from './fragments/bottom-bar/bottom-bar.component';
+import { TopBarComponent } from './fragments/top-bar/top-bar.component';
 import {CreateNewRecipePage} from "./pages/create-new-recipe-page/create-new-recipe-page";
 import {ElementBottomSheetComponent} from "./fragments/element-picker/element-bottom-sheet.component";
 import {MatToolbarModule} from "@angular/material/toolbar";
@@ -24,6 +25,13 @@ import {MatDialog, MatDialogModule, MatDialogRef} from "@angular/material/dialog
 import { RecipeEditPageComponent } from './pages/recipe-edit-page/recipe-edit-page.component';
 import { RecipePageComponent } from './pages/recipe-page/recipe-page.component';
 import { AddIngredientBottomSheetComponent } from './fragments/add-ingredient-bottom-sheet/add-ingredient-bottom-sheet.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatChipsModule} from "@angular/material/chips";
+import {MatSelectModule} from "@angular/material/select";
+import {MatListModule} from "@angular/material/list";
+import {MatCardModule} from "@angular/material/card";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
@@ -37,6 +45,7 @@ import { AddIngredientBottomSheetComponent } from './fragments/add-ingredient-bo
     SearchPageComponent,
     MyIngredientsPageComponent,
     BottomBarComponent,
+    TopBarComponent,
     RecipeEditPageComponent,
     RecipePageComponent,
     AddIngredientBottomSheetComponent
@@ -52,7 +61,14 @@ import { AddIngredientBottomSheetComponent } from './fragments/add-ingredient-bo
     MatIconModule,
     MatDialogModule,
     MatButtonModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatChipsModule,
+    MatSelectModule,
+    MatListModule,
+    MatCardModule,
+    MatProgressSpinnerModule
   ],
   bootstrap: [AppComponent]
 })

@@ -1,10 +1,15 @@
-<h4>Select an ingredient :</h4>
-<a *ngFor="let ingredient of ingredients " (click)="selectIngredient(ingredient)">
-  <div>{{ ingredient.name }}</div>
-</a>
-<a (click)="showAddIngredient()">
-  <div>+</div>
+<h3>Select an ingredient :</h3>
+<mat-form-field appearance="outline">
+  <mat-label>Available ingredients</mat-label>
+  <mat-select>
+    <mat-option value="{{ ingredient.name }}" *ngFor="let ingredient of ingredients " (click)="selectIngredient(ingredient)">{{ ingredient.name }}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<a mat-icon-button (click)="showAddIngredient()" color="primary">
+  <mat-icon>add</mat-icon>
 </a>
 <div *ngIf="addIngredientShowing">
   <app-ingredients-add (onSubmittedIngredient)="onIngredientAdded($event)"></app-ingredients-add>
 </div>
+

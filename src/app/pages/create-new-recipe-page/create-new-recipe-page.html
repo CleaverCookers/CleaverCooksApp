@@ -1,6 +1,12 @@
-<h1>Create a new recipe</h1>
+<h2>Create a new recipe</h2>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-  Title : <input type="text" formControlName="name">
-  Description : <textarea formControlName="description"></textarea>
-  <button class="button" type="submit">Save</button>
+  <mat-form-field appearance="outline">
+    <mat-label>Title</mat-label>
+    <input matInput type="text" formControlName="name">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description"></textarea>
+  </mat-form-field>
+  <button mat-raised-button color="primary" class="button" type="submit">Save</button>
 </form>

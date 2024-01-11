@@ -1,32 +1,43 @@
 <div *ngIf="this.isInit && this.isFound">
-    <h1>{{ recipe.name }}</h1>
-    <a [routerLink]="['/recipes', recipe.id, 'edit']">Modifier</a>
-    <button (click)="delete()">Supprimer</button>
-    <p>
-        {{ recipe.description }}
-    </p>
-    <div *ngIf="recipe.instructions != null">
-        <h2>Etapes</h2>
-        <ul>
-            <li *ngFor="let step of recipe.instructions.split('\n')" class="step">
-                {{ step }}
-            </li>
-        </ul>
+  <h2>
+    {{ recipe.name }}
+    <a class="button-icon"  mat-icon-button [routerLink]="['/recipes', recipe.id, 'edit']">
+      <mat-icon>edit</mat-icon>
+    </a>
+    <button class="button-icon" color="warn" mat-icon-button (click)="delete()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </h2>
+
+  <p>{{ recipe.description }}</p>
+
+  <div *ngFor="let element of recipe.elements" id="ingredients-list">
+    <div id="ingredients">
+      <span>{{ element.amount }} gr</span>
+      <span>{{ element.ingredient.name }}</span>
     </div>
-    <div *ngIf="recipe.instructions == null">
-        <h2>Aucunes étapes</h2>
-    </div>
-    <div>
-        <h2>Ingredients list</h2>
-        <div *ngFor="let element of recipe.elements">
-            {{ element.ingredient.name }}
-            {{ element.amount }}
-        </div>
-    </div>
+    <mat-divider></mat-divider>
+  </div>
+
+
+  <div *ngIf="recipe.instructions != null">
+      <h3><strong>Etapes</strong></h3>
+      <ul>
+          <li *ngFor="let step of recipe.instructions.split('\n')" class="step">
+              {{ step }}
+          </li>
+      </ul>
+  </div>
+  <div *ngIf="recipe.instructions == null" class="centred">
+      <h2>Aucunes étapes</h2>
+  </div>
 </div>
-<div *ngIf="!this.isInit">
+
+<div *ngIf="!this.isInit" class="centred">
     <h1>Chargement...</h1>
+    <mat-spinner></mat-spinner>
 </div>
-<div *ngIf="this.isInit && !this.isFound">
+
+<div *ngIf="this.isInit && !this.isFound" class="centred">
     <h1>Recette non trouvée!</h1>
 </div>
