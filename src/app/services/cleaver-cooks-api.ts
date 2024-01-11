@@ -105,6 +105,40 @@ export class CleaverCooksApi {
     });
   }
 
+  public getRecipesRankedByIngredients(ingredients:Ingredient[]): Promise<Recipe[]> {
+    return new Promise((resolve, reject) => {
+      try {
+        const query = gql`
+                    query GetRecipesByIngredients($ingredientIds: [ID!]!) {
+                      getRecipesByIngredients(ingredientIds: $ingredientIds) {
+                        description
+                        id
+                        ingredientCount
+                        instructions
+                        missingIngredientCount
+                        name
+                      }
+                    }
+                `;
+        this.apollo.watchQuery({
+          query: query,
+          variables: {ingredientIds: ingredients.map((ingredient)=>{return ingredient.id})}
+        }).valueChanges.subscribe(({data, error}) => {
+          if (error) {
+            reject(error);
+          } else {
+            let queryData = (data as any).getRecipesByIngredients;
+            resolve(queryData.map((data: { id: string; name: string; description: string; instructions: string; missingIngredientCount:number}) => {
+              return new Recipe(data.id, data.name, data.description, data.instructions, [], data.missingIngredientCount);
+            }));
+          }
+        });
+      } catch (error) {
+        reject(error);
+      }
+    });
+  }
+
   public getRecipe(id: string): Promise<Recipe|null> {
     return new Promise((resolve, reject) => {
       try {
