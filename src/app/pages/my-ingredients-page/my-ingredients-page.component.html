@@ -1,0 +1,8 @@
+<h2>My ingredients</h2>
+<div>
+  <div *ngFor="let ingredient of ingredients ">
+    <div>{{ ingredient.name }}</div>
+    <button (click)="deleteIngredient(ingredient)">Delete</button>
+  </div>
+  <button (click)="showAddIngredientBottomSheet()">Add ingredient</button>
+</div>

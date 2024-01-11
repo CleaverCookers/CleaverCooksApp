@@ -1,0 +1,6 @@
+<h1>Create a new recipe</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  Title : <input type="text" formControlName="name">
+  Description : <textarea formControlName="description"></textarea>
+  <button class="button" type="submit">Save</button>
+</form>

@@ -1,0 +1,26 @@
+<div *ngIf="this.isInit && this.isFound">
+  <h1>Modify a recipe</h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    Title : <input type="text" formControlName="name">
+    Description : <textarea formControlName="description"></textarea>
+    Instructions : <textarea formControlName="instructions"></textarea>
+    <button class="button" type="submit">Save</button>
+  </form>
+  <div>
+    <h2>Ingredients list</h2>
+    <div *ngFor="let element of recipe.elements">
+      {{ element.ingredient.name }}
+      {{ element.amount }}
+      <button (click)="showEditElementBottomSheet(element)">Edit</button>
+      <button (click)="removeElement(element)">Delete</button>
+    </div>
+    <button (click)="showNewElementBottomSheet()">Add ingredient</button>
+    <!--<app-element-picker *ngIf="elementPickerDisplayed" (onSubmittedElement)="addElement($event)"></app-element-picker>-->
+  </div>
+</div>
+<div *ngIf="!this.isInit">
+  <h1>Chargement...</h1>
+</div>
+<div *ngIf="this.isInit && !this.isFound">
+  <h1>Recette non trouvée!</h1>
+</div>

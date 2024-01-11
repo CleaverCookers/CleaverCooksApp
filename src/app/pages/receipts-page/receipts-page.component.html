@@ -1,0 +1,10 @@
+<h1>Recipes</h1>
+<div *ngIf="recipes == undefined">
+  No recipe found
+</div>
+<div *ngIf="recipes != undefined">
+  <div *ngFor="let recipe of recipes">
+    <a routerLink="/recipes/{{recipe.id}}">{{recipe.name}}</a>
+  </div>
+</div>
+<a routerLink="/recipes/new">Add a new one</a>

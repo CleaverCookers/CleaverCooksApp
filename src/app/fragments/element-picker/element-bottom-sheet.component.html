@@ -1,0 +1,7 @@
+<h3>New element in recipe</h3>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  Ingredient : <a (click)="pickerDisplayed=true">{{ ingredient?.name ?? "Sélectionner un ingredient" }}</a>
+  <app-ingredients-picker *ngIf="pickerDisplayed" (onSelectedIngredients)="changeIngredient($event)"></app-ingredients-picker>
+  Quantity : <input type="number" formControlName="quantity"> (gr)
+  <button class="button" type="submit">Save</button>
+</form>
