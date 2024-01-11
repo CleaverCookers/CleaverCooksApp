@@ -8,7 +8,7 @@ import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 import { IngredientsPickerComponent } from './fragments/ingredients-picker/ingredients-picker.component';
 import { IngredientsAddComponent } from './fragments/ingredients-add/ingredients-add.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ReceiptsPageComponent } from './pages/receipts-page/receipts-page.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { MyIngredientsPageComponent } from './pages/my-ingredients-page/my-ingredients-page.component';
@@ -32,6 +32,8 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatListModule} from "@angular/material/list";
 import {MatCardModule} from "@angular/material/card";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
+import {RecipeCardComponent} from "./fragments/recipe-card/recipe-card.component";
 
 @NgModule({
   declarations: [
@@ -68,7 +70,10 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     MatSelectModule,
     MatListModule,
     MatCardModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSnackBarModule,
+    RecipeCardComponent,
+    FormsModule
   ],
   bootstrap: [AppComponent]
 })

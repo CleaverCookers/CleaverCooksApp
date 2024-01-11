@@ -8,8 +8,19 @@
       <mat-icon>delete</mat-icon>
     </button>
   </h2>
+  <img mat-card-imagee src="/assets/images/default-image-recipe.jpg" alt="Default image of recipe showing ingredients" id="card-image">
 
   <p>{{ recipe.description }}</p>
+
+  <h2 id="ingredients-title">
+    Ingredients
+    <div *ngIf="recipe.missingElements != undefined">
+      <div #thenBlock id="missing-element">
+        {{recipe.missingElements}}
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="shopping_cart" color="warn"></mat-icon>
+      </div>
+    </div>
+  </h2>
 
   <div *ngFor="let element of recipe.elements" id="ingredients-list">
     <div id="ingredients">
@@ -29,15 +40,15 @@
       </ul>
   </div>
   <div *ngIf="recipe.instructions == null" class="centred">
-      <h2>Aucunes étapes</h2>
+      <h2>No steps</h2>
   </div>
 </div>
 
 <div *ngIf="!this.isInit" class="centred">
-    <h1>Chargement...</h1>
+    <h1>Loading...</h1>
     <mat-spinner></mat-spinner>
 </div>
 
 <div *ngIf="this.isInit && !this.isFound" class="centred">
-    <h1>Recette non trouvée!</h1>
+    <h1>Recipe not found!</h1>
 </div>
