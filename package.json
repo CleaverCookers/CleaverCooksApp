@@ -22,6 +22,9 @@
     "@angular/pwa": "^17.0.5",
     "@angular/router": "^14.2.0",
     "@apollo/client": "^3.0.0",
+    "@capacitor/android": "^5.6.0",
+    "@capacitor/angular": "^2.0.3",
+    "@capacitor/core": "latest",
     "apollo-angular": "^4.0.0",
     "graphql": "^16",
     "rxjs": "~7.5.0",
@@ -31,6 +34,7 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.2.4",
     "@angular/compiler-cli": "^14.2.0",
+    "@capacitor/cli": "latest",
     "@types/jasmine": "~4.0.0",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",
