@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 
+/**
+ * A top bar showing the app branding
+ */
 @Component({
   selector: 'app-top-bar',
   templateUrl: './top-bar.component.html',

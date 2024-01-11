@@ -23,6 +23,9 @@ export class CreateNewRecipePage {
   });
   private api:CleaverCooksApi;
 
+  /**
+   * When the form is submitted, create the recipe and redirect to the edit page
+   */
   async onSubmit() {
       if (this.form.value.name == null) return;
       let recipe = await this.api.createRecipe(this.form.value.name, this.form.value.description, null);

@@ -5,6 +5,9 @@ import {MatIconModule} from "@angular/material/icon";
 import {RouterLink} from "@angular/router";
 import {Recipe} from "../../models/recipe";
 
+/**
+ * A card that show a recipe (generally showed in a list view)
+ */
 @Component({
   selector: 'app-recipe-card',
   standalone: true,

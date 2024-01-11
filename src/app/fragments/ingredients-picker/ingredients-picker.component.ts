@@ -18,6 +18,9 @@ export class IngredientsPickerComponent implements OnInit {
   public ingredients:Ingredient[] = [];
   public addIngredientShowing = false;
 
+  /**
+   * Fetch all the ingredients to show the possibilities to the user
+   */
   ngOnInit(): void {
     new CleaverCooksApi(this.apollo).getAllIngredients().then((data) => {
       this.ingredients = data;
@@ -26,15 +29,26 @@ export class IngredientsPickerComponent implements OnInit {
     });
   }
 
+  /**
+   * Show the add ingredient form
+   */
   showAddIngredient(){
     this.addIngredientShowing = !this.addIngredientShowing;
   }
 
+  /**
+   * Event emitter when the add ingredient form has created a new ingredient
+   * @param ingredient
+   */
   onIngredientAdded(ingredient:Ingredient){
-    console.log("Ingredient added"+ingredient)
     this.ingredients.push(ingredient);
+    this.addIngredientShowing = false
   }
 
+  /**
+   * When an ingredient has been chosen, emit an event to the parent
+   * @param ingredient
+   */
   selectIngredient(ingredient:Ingredient){
     this.onSelectedIngredients.emit(ingredient);
   }

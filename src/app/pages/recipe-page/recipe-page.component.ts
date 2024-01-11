@@ -26,6 +26,9 @@ export class RecipePageComponent implements OnInit {
   public isInit:boolean = false;
   private api:CleaverCooksApi;
 
+  /**
+   * Get the recipe by id to fill the properties
+   */
   async ngOnInit(): Promise<void> {
     let recipe = await this.api.getRecipe(this.recipe.id);
     this.isInit = true;
@@ -35,6 +38,9 @@ export class RecipePageComponent implements OnInit {
     }
   }
 
+  /**
+   * Delete the current recipe and redirect to the main page
+   */
   delete() {
     this.api.deleteRecipe(this.recipe.id).then(()=>{
         this.router.navigate(['recipes']);

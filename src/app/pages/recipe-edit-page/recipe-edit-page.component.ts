@@ -23,6 +23,10 @@ export class RecipeEditPageComponent implements OnInit{
     this.recipe = new Recipe(route.snapshot.params['id'],"","","",[]);
     this.form = this.formBuilder.group(this.recipe);
   }
+
+  /**
+   * Get the recipe by id and fill the form with initial values
+   */
   async ngOnInit(): Promise<void> {
     let recipe = await this.api.getRecipe(this.recipe.id);
     this.isInit = true;
@@ -40,6 +44,9 @@ export class RecipeEditPageComponent implements OnInit{
 
   private api:CleaverCooksApi;
 
+  /**
+   * Update the recipe when form submitted
+   */
   async onSubmit() {
     if (this.form.value.name == null) return;
     let modifiedRecipe = await this.api.updateRecipe(this.recipe.id, this.form.value.name, this.form.value.description, this.form.value.instructions);
@@ -49,6 +56,10 @@ export class RecipeEditPageComponent implements OnInit{
     this.openSnackBar('Recipe Updated', 'OK')
   }
 
+  /**
+   * Show the edit element (ingredient with quantity) bottom sheet
+   * @param element
+   */
   showEditElementBottomSheet(element: Element) {
     const bottomSheetRef = this._bottomSheet.open(ElementBottomSheetComponent, {
         data: element
@@ -69,14 +80,27 @@ export class RecipeEditPageComponent implements OnInit{
     });
   }
 
+  /**
+   * Add ingredient with quantity to the current recipe
+   * @param element
+   */
   async addElement(element: Element) {
     let elementAdded = await this.api.addIngredientToRecipe(this.recipe.id, element.ingredient.id, element.amount);
     this.recipe.elements.push(elementAdded);
   }
 
+  /**
+   * Update the element (ingredient + qty) in the Backend
+   * @param element
+   */
   async editElement(element: Element) {
     let elementAdded = await this.api.updateIngredientInRecipe(element.id, element.amount)
   }
+
+  /**
+   * Remove an ingredient from the recipe
+   * @param element
+   */
   async removeElement(element: Element) {
     await this.api.removeIngredientFromRecipe(element.id);
     this.recipe.elements = this.recipe.elements.filter((elementInRecipe) => {
@@ -84,6 +108,9 @@ export class RecipeEditPageComponent implements OnInit{
     });
   }
 
+  /**
+   * Show the bottom sheet to add an ingredient with a quantity to the current recipe
+   */
   showNewElementBottomSheet() {
     const bottomSheetRef = this._bottomSheet.open(ElementBottomSheetComponent, {
         data: null
@@ -94,6 +121,11 @@ export class RecipeEditPageComponent implements OnInit{
     });
   }
 
+  /**
+   * Open a confirmation snackbar
+   * @param message
+   * @param action
+   */
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action,{
       duration: 3000

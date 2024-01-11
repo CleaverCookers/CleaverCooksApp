@@ -20,6 +20,9 @@ export class SearchPageComponent implements OnInit {
   public recipes: Recipe[] = []
   public search: string = "";
 
+  /**
+   * Cache all the recipes
+   */
   ngOnInit(): void {
     new CleaverCooksApi(this.apollo).getAllRecipes().then((data) => {
       this.cachedRecipes = data;
@@ -29,6 +32,10 @@ export class SearchPageComponent implements OnInit {
     });
   }
 
+  /**
+   * When search input changed, update the search system (if the name contains the input) (without case)
+   * @param $event
+   */
   onSearchChanged($event: any) {
     this.recipes = this.cachedRecipes.filter((recipe)=>{
       return recipe.name.toLowerCase().includes(this.search.toLowerCase());

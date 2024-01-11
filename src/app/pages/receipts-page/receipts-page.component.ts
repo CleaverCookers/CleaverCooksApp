@@ -18,6 +18,9 @@ export class ReceiptsPageComponent implements OnInit {
 
   public recipes: Recipe[] | undefined;
 
+  /**
+   * Get the recipes ranked by the number of ingredients I have at home (and show the missing ingredients number if any)
+   */
   ngOnInit(): void {
     new CleaverCooksApi(this.apollo).getRecipesRankedByIngredients(LocalCookerPreferences.getMyIngredientsLocalIds()).then((data) => {
       this.recipes = data;

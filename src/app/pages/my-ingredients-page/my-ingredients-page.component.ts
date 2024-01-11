@@ -21,11 +21,17 @@ export class MyIngredientsPageComponent implements OnInit {
 
   public ingredients:Ingredient[] = [];
 
+  /**
+   * Get the list of my ingredients from the cached local id
+   */
   async ngOnInit(): Promise<void> {
     let allIngredients = await new CleaverCooksApi(this.apollo).getAllIngredients();
     this.ingredients = LocalCookerPreferences.getMyIngredients(allIngredients);
   }
 
+  /**
+   * Open the bottom sheet to add ingredient to my list
+   */
   showAddIngredientBottomSheet() {
     const bottomSheetRef = this.bottomSheet.open(AddIngredientBottomSheetComponent);
     bottomSheetRef.afterDismissed().subscribe((ingredient)=>{
@@ -39,6 +45,10 @@ export class MyIngredientsPageComponent implements OnInit {
     });
   }
 
+  /**
+   * Delete an ingredient from my list
+   * @param ingredient
+   */
   deleteIngredient(ingredient: Ingredient) {
     this.ingredients = this.ingredients.filter((i)=>i.id != ingredient.id);
     LocalCookerPreferences.setMyIngredients(this.ingredients);

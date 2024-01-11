@@ -23,6 +23,9 @@ export class IngredientsAddComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * When the add ingredient button pressed, create a new ingredient from the form title value and emit an event
+   */
   async onSubmit() {
     let createdIngredient = await new CleaverCooksApi(this.apollo).createIngredient(this.form.value.title!);
     this.onSubmittedIngredient.emit(createdIngredient)

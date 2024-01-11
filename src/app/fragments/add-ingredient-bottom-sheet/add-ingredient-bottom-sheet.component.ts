@@ -19,10 +19,17 @@ export class AddIngredientBottomSheetComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Change the currently picked ingredient
+   * @param ingredient
+   */
   changeIngredient(ingredient: Ingredient) {
     this.ingredient = ingredient;
   }
 
+  /**
+   * Validate this bottom sheet and close it (passing the current ingredient to the emitter)
+   */
   addIngredient() {
     if (this.ingredient == undefined) return;
     this.dialogRef.dismiss(this.ingredient);
