@@ -40,4 +40,21 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-### 
+## Capacitor
+To have a mobile application we have added capacitor which is used to build a web app. We use Android Studio to emulate the app. 
+
+Prerequisite :
+Android Studio  : https://developer.android.com/studio
+### Build
+Don't forget to run `npm run build` before adding android.
+Then add android app.
+`npx cap add android`
+### Open on Android Studio
+Open on android studio.
+`npx cap open android`
+### Sync 
+For updating the app you can use sync with the new build make. 
+`npx cap sync android`
+
+### Further help
+https://capacitorjs.com/docs/android
