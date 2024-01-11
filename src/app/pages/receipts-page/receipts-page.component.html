@@ -3,9 +3,9 @@
   No recipe found
 </div>
 <div *ngIf="recipes != undefined">
-  <mat-card *ngFor="let recipe of recipes" routerLink="/recipes/{{recipe.id}}">
-    <mat-card-title>{{recipe.name}}</mat-card-title>
-  </mat-card>
+  <div *ngFor="let recipe of recipes" >
+    <app-recipe-card [recipe]="recipe"></app-recipe-card>
+  </div>
 </div>
 <a mat-fab color="primary" routerLink="/recipes/new" id="mat-fab">
   <mat-icon>add</mat-icon>

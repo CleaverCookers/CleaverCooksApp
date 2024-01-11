@@ -1,0 +1,17 @@
+<mat-card routerLink="/recipes/{{recipe?.id}}">
+  <mat-card-header>
+    <mat-card-title>{{recipe?.name}}</mat-card-title>
+  </mat-card-header>
+  <img src="/assets/images/default-image-recipe.jpg" alt="Default image of recipe showing ingredients" id="card-image">
+  <mat-card-content>
+    <p>
+      {{recipe?.description}}
+    </p>
+    <div *ngIf="recipe?.missingElements != undefined">
+      <div #thenBlock id="missing-element">
+        {{recipe?.missingElements}}
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="shopping_cart" color="warn"></mat-icon>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
