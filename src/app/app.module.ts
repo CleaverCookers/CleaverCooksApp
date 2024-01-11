@@ -8,7 +8,7 @@ import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 import { IngredientsPickerComponent } from './fragments/ingredients-picker/ingredients-picker.component';
 import { IngredientsAddComponent } from './fragments/ingredients-add/ingredients-add.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ReceiptsPageComponent } from './pages/receipts-page/receipts-page.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { MyIngredientsPageComponent } from './pages/my-ingredients-page/my-ingredients-page.component';
@@ -72,7 +72,8 @@ import {RecipeCardComponent} from "./fragments/recipe-card/recipe-card.component
     MatCardModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
-    RecipeCardComponent
+    RecipeCardComponent,
+    FormsModule
   ],
   bootstrap: [AppComponent]
 })

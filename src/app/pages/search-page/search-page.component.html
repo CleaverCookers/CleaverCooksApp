@@ -2,7 +2,12 @@
 <p>
   <mat-form-field appearance="outline">
     <mat-label>Search</mat-label>
-    <input matInput placeholder="Search">
+    <input matInput placeholder="Search" [(ngModel)]="search" (ngModelChange)="onSearchChanged($event)">
     <mat-icon matSuffix>search</mat-icon>
   </mat-form-field>
 </p>
+<div *ngIf="recipes != undefined">
+  <div *ngFor="let recipe of recipes" >
+    <app-recipe-card [recipe]="recipe"></app-recipe-card>
+  </div>
+</div>
