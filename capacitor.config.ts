@@ -2,8 +2,8 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'com.CleaverCook.app',
-  appName: 'CleaverCooksApp',
-  webDir: 'dist/cleaver-cooks',
+  appName: 'CleaverCooks',
+  webDir: 'dist/cleaver-cooks-app',
   server: {
     androidScheme: 'https'
   }
