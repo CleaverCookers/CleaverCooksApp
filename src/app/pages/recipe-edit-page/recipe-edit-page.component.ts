@@ -46,6 +46,7 @@ export class RecipeEditPageComponent implements OnInit{
     this.recipe.name = modifiedRecipe.name;
     this.recipe.description = modifiedRecipe.description;
     this.recipe.instructions = modifiedRecipe.instructions;
+    this.openSnackBar('Recipe Updated', 'OK')
   }
 
   showEditElementBottomSheet(element: Element) {
