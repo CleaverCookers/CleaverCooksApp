@@ -33,5 +33,5 @@ class Element{
 
 Allergy <-- Ingredient
 Receipe o-- Element
-Element --> Ingredient
+Element --* Ingredient
 @enduml
