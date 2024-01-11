@@ -7,6 +7,7 @@ import {Element} from "../../models/element";
 import {ElementBottomSheetComponent} from "../../fragments/element-picker/element-bottom-sheet.component";
 import {Recipe} from "../../models/recipe";
 import {ActivatedRoute} from "@angular/router";
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 /**
  * The page that allows the user to edit a recipe by adding, removing, and editing elements or changing the name and description.
@@ -17,7 +18,7 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./recipe-edit-page.component.scss']
 })
 export class RecipeEditPageComponent implements OnInit{
-  constructor(private formBuilder: FormBuilder, apollo:Apollo, route: ActivatedRoute,private _bottomSheet: MatBottomSheet) {
+  constructor(private formBuilder: FormBuilder, apollo:Apollo, route: ActivatedRoute,private _bottomSheet: MatBottomSheet, private _snackBar: MatSnackBar) {
     this.api = new CleaverCooksApi(apollo);
     this.recipe = new Recipe(route.snapshot.params['id'],"","","",[]);
     this.form = this.formBuilder.group(this.recipe);
@@ -89,6 +90,12 @@ export class RecipeEditPageComponent implements OnInit{
     bottomSheetRef.afterDismissed().subscribe((element)=>{
       if(element != undefined)
         this.addElement(element);
+    });
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action,{
+      duration: 3000
     });
   }
 }

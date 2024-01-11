@@ -13,7 +13,7 @@
       <mat-label>Instructions</mat-label>
       <textarea matInput formControlName="instructions"></textarea>
     </mat-form-field>
-    <button mat-raised-button color="primary" class="button" type="submit">Save</button>
+    <button mat-raised-button color="primary" class="button" type="submit" (click)="openSnackBar('Recipe Updated', 'OK')">Save</button>
   </form>
   <br>
 
