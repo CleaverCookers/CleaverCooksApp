@@ -21,3 +21,17 @@ mat-icon {
 #card-image {
   max-width: -webkit-fill-available;
 }
+
+#ingredients-title {
+  display: flex;
+  gap: 0.5rem;
+  #missing-element , #missing-element > mat-icon{
+    font-size: 1rem;
+    color: #f44336;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+}
+
+

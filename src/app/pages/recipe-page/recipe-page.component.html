@@ -12,6 +12,18 @@
 
   <p>{{ recipe.description }}</p>
 
+  <h2 id="ingredients-title">
+    Ingredients
+    <!-- TODO : add row when implemented missingIngerdient
+    <div *ngIf="recipe.missingElements != undefined">
+      <div #thenBlock id="missing-element">
+        {{recipe.missingElements}} / {{recipe.elements.length}}
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="shopping_cart" color="warn"></mat-icon>
+      </div>
+    </div>
+    -->
+  </h2>
+
   <div *ngFor="let element of recipe.elements" id="ingredients-list">
     <div id="ingredients">
       <span>{{ element.amount }} gr</span>

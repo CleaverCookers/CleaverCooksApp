@@ -22,3 +22,11 @@ mat-card-title {
 #card-image {
   max-width: -webkit-fill-available;
 }
+
+#missing-element{
+  color: #f44336;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  justify-content: end;
+}
