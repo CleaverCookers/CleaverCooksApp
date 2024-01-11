@@ -33,6 +33,7 @@ import {MatListModule} from "@angular/material/list";
 import {MatCardModule} from "@angular/material/card";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
+import {RecipeCardComponent} from "./fragments/recipe-card/recipe-card.component";
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
     MatListModule,
     MatCardModule,
     MatProgressSpinnerModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    RecipeCardComponent
   ],
   bootstrap: [AppComponent]
 })
