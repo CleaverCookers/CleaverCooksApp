@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Apollo} from "apollo-angular";
 import {CleaverCooksApi} from "../../services/cleaver-cooks-api";
 import {Recipe} from "../../models/recipe";
+import {LocalCookerPreferences} from "../../services/local-cooker-preferences";
 
 /**
  * The page that allows the user to view all recipes.
@@ -18,7 +19,7 @@ export class ReceiptsPageComponent implements OnInit {
   public recipes: Recipe[] | undefined;
 
   ngOnInit(): void {
-    new CleaverCooksApi(this.apollo).getAllRecipes().then((data) => {
+    new CleaverCooksApi(this.apollo).getRecipesRankedByIngredients(LocalCookerPreferences.getMyIngredientsLocalIds()).then((data) => {
       this.recipes = data;
     }).catch((error) => {
       console.error(error);

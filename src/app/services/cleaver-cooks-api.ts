@@ -105,7 +105,7 @@ export class CleaverCooksApi {
     });
   }
 
-  public getRecipesRankedByIngredients(ingredients:Ingredient[]): Promise<Recipe[]> {
+  public getRecipesRankedByIngredients(ingredientsLocalIds:number[]): Promise<Recipe[]> {
     return new Promise((resolve, reject) => {
       try {
         const query = gql`
@@ -122,7 +122,7 @@ export class CleaverCooksApi {
                 `;
         this.apollo.watchQuery({
           query: query,
-          variables: {ingredientIds: ingredients.map((ingredient)=>{return ingredient.id})}
+          variables: {ingredientIds: ingredientsLocalIds}
         }).valueChanges.subscribe(({data, error}) => {
           if (error) {
             reject(error);
