@@ -17,3 +17,7 @@ mat-icon {
   flex-direction: column;
   align-items: center;
 }
+
+#card-image {
+  max-width: -webkit-fill-available;
+}
