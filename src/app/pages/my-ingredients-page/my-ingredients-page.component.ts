@@ -1,3 +1,10 @@
+/**
+ *  @file      my-ingredients-page.components.ts
+ *  @brief     my ingredients page
+ *  @author    Created by Eliott Jaquier, Mikael Juillet
+ *  @version   03.01.2024
+ */
+
 import { Component, OnInit } from '@angular/core';
 import {Apollo} from "apollo-angular";
 import {CleaverCooksApi} from "../../services/cleaver-cooks-api";

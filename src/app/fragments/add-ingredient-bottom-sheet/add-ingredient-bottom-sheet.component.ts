@@ -1,3 +1,10 @@
+/**
+ *  @file      add-ingredient-bottom-sheet.component.ts
+ *  @brief     ingredient bottom sheet component
+ *  @author    Created by Eliott Jaquier
+ *  @version   12.01.2024
+ */
+
 import { Component, OnInit } from '@angular/core';
 import {MatBottomSheetRef} from "@angular/material/bottom-sheet";
 import {Element} from "../../models/element";

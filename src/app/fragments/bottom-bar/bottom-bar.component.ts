@@ -1,3 +1,10 @@
+/**
+ *  @file      bottom-bar.component.ts
+ *  @brief     bottom bar component
+ *  @author    Created by Eliott Jaquier, Mikael Juillet
+ *  @version   03.01.2024
+ */
+
 import { Component, OnInit } from '@angular/core';
 
 /**

@@ -1,3 +1,10 @@
+/**
+ *  @file      create-new-recipe-page.ts
+ *  @brief     create new recipe page
+ *  @author    Created by Eliott Jaquier, Mikael Juillet
+ *  @version   03.01.2024
+ */
+
 import { Component, OnInit } from '@angular/core';
 import {Apollo} from "apollo-angular";
 import {CleaverCooksApi} from "../../services/cleaver-cooks-api";

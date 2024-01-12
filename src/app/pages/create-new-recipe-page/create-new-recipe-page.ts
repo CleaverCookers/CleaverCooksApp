@@ -1,3 +1,10 @@
+/**
+ *  @file      create-new-recipe-page.ts
+ *  @brief     create new recipe page
+ *  @author    Created by Eliott Jaquier, Mikael Juillet
+ *  @version   03.01.2024
+ */
+
 import { Component } from '@angular/core';
 import {FormBuilder} from "@angular/forms";
 import {Apollo} from "apollo-angular";

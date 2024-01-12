@@ -1,3 +1,10 @@
+/**
+ *  @file      element.ts
+ *  @brief     Used to construct element
+ *  @author    Created by Eliott Jaquier
+ *  @version   03.01.2024
+ */
+
 import {Ingredient} from "./ingredient";
 
 /**

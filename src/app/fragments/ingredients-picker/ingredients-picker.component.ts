@@ -1,3 +1,10 @@
+/**
+ *  @file      ingredients-picker.component.ts
+ *  @brief     ingredients picker component
+ *  @author    Created by Eliott Jaquier, Mikael Juillet
+ *  @version   03.01.2024
+ */
+
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import { CleaverCooksApi } from 'src/app/services/cleaver-cooks-api';

@@ -1,3 +1,10 @@
+/**
+ *  @file      element-bottom-sheet.component.ts
+ *  @brief     element bottom sheet
+ *  @author    Created by Eliott Jaquier, Mikael Juillet
+ *  @version   03.01.2024
+ */
+
 import {Component, EventEmitter, Inject, Output} from '@angular/core';
 import {Ingredient} from "../../models/ingredient";
 import {FormBuilder} from "@angular/forms";

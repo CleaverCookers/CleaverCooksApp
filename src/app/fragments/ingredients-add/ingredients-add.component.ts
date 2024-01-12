@@ -1,3 +1,10 @@
+/**
+ *  @file      ingredients-add.component.ts
+ *  @brief     ingredients add component
+ *  @author    Created by Eliott Jaquier, Mikael Juillet
+ *  @version   03.01.2024
+ */
+
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import {CleaverCooksApi} from "../../services/cleaver-cooks-api";

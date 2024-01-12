@@ -1,3 +1,10 @@
+/**
+ *  @file      not-found-page.component.ts
+ *  @brief     not found page
+ *  @author    Created by Eliott Jaquier, Mikael Juillet
+ *  @version   03.01.2024
+ */
+
 import { Component, OnInit } from '@angular/core';
 
 /**
