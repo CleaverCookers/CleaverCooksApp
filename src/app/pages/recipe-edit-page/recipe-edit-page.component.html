@@ -31,7 +31,7 @@
    <div *ngFor="let element of recipe.elements" id="ingredients-list">
      <div id="ingredients">
        <div id="ingredient">
-         <span>{{ element.amount }} gr</span>
+         <span>{{ element.amount }} {{ element.unit }}</span>
          <span>{{ element.ingredient.name }}</span>
        </div>
 

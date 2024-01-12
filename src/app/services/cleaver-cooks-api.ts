@@ -89,6 +89,7 @@ export class CleaverCooksApi {
                       getAllRecipes {
                         elements {
                           amount
+                          unit
                           id
                           ingredient {
                             id
@@ -109,9 +110,9 @@ export class CleaverCooksApi {
             reject(error);
           } else {
             let queryData = (data as any).getAllRecipes;
-            resolve(queryData.map((data: { id: string; name: string; description: string; instructions: string; elements: { id: string; amount: number; ingredient: { id: string; name: string; }; }[]; }) => {
+            resolve(queryData.map((data: { id: string; name: string; description: string; instructions: string; elements: { id: string; amount: number; unit: string; ingredient: { id: string; name: string; }; }[]; }) => {
               return new Recipe(data.id, data.name, data.description, data.instructions, data.elements.map((data)=> {
-                return new Element(data.id, data.amount,  new Ingredient(data.ingredient.id, data.ingredient.name))
+                return new Element(data.id, data.amount, data.unit,  new Ingredient(data.ingredient.id, data.ingredient.name))
               }));
             }));
           }
@@ -172,6 +173,7 @@ export class CleaverCooksApi {
                       getRecipe(id: $id) {
                         elements {
                           amount
+                          unit
                           id
                           ingredient {
                             id
@@ -197,8 +199,8 @@ export class CleaverCooksApi {
               resolve(null);
               return;
             }
-            resolve(new Recipe(queryData.id, queryData.name, queryData.description, queryData.instructions, queryData.elements.map((data: { id: string; amount: number; ingredient: { id: string; name: string; }; }) => {
-              return new Element(data.id, data.amount, new Ingredient(data.ingredient.id, data.ingredient.name));
+            resolve(new Recipe(queryData.id, queryData.name, queryData.description, queryData.instructions, queryData.elements.map((data: { id: string; amount: number; unit:string; ingredient: { id: string; name: string; }; }) => {
+              return new Element(data.id, data.amount, data.unit, new Ingredient(data.ingredient.id, data.ingredient.name));
             })));
           }
         });
@@ -366,14 +368,16 @@ export class CleaverCooksApi {
    * @param recipeId
    * @param ingredientId
    * @param amount
+   * @param unit
    * @return The element of the recipe
    */
-  public addIngredientToRecipe(recipeId: string, ingredientId: string, amount: number): Promise<Element> {
+  public addIngredientToRecipe(recipeId: string, ingredientId: string, amount: number, unit: string) : Promise<Element> {
     return new Promise((resolve, reject) => {
       const query = gql`
               mutation AddIngredientToRecipe($recipeId: ID!, $element: ElementInput!) {
                 addIngredientToRecipe(recipeId: $recipeId, element: $element){
                   amount
+                  unit
                   id
                   ingredient {
                     name
@@ -382,12 +386,12 @@ export class CleaverCooksApi {
                 }
               }
           `;
-      this.apollo.mutate({mutation: query, variables: {recipeId: recipeId, element: {id: ingredientId, amount: amount}}}).subscribe(result => {
+      this.apollo.mutate({mutation: query, variables: {recipeId: recipeId, element: {id: ingredientId, amount: amount, unit: unit}}}).subscribe(result => {
         if (result.errors) {
           reject(result.errors);
         } else {
           let queryData = (result.data as any).addIngredientToRecipe;
-          resolve(new Element(queryData.id, queryData.amount, new Ingredient(queryData.ingredient.id, queryData.ingredient.name)));
+          resolve(new Element(queryData.id, queryData.amount, queryData.unit, new Ingredient(queryData.ingredient.id, queryData.ingredient.name)));
         }
       });
     });
@@ -415,18 +419,20 @@ export class CleaverCooksApi {
   }
 
   /**
-   * Update an ingredient by it's liaison id and the new amount
+   * Update an ingredient by it's liaison id and the new amount + unit
    * @param elementId
    * @param amount
+   * @param unit
    * @return The updated element / liaison
    */
-  public updateIngredientInRecipe(elementId: string, amount: number) : Promise<Element> {
+  public updateIngredientInRecipe(elementId: string, amount: number, unit: string) : Promise<Element> {
     return new Promise((resolve, reject) => {
       const query = gql`
               mutation UpdateIngredientInRecipe($element: ElementInput!) {
                 updateIngredientInRecipe(element: $element) {
                   id
                   amount
+                  unit
                   ingredient {
                     id
                     name
@@ -434,12 +440,12 @@ export class CleaverCooksApi {
                 }
               }
           `;
-        this.apollo.mutate({mutation: query, variables: {element: {id: elementId, amount: amount}}}).subscribe(result => {
+        this.apollo.mutate({mutation: query, variables: {element: {id: elementId, amount: amount, unit: unit}}}).subscribe(result => {
             if (result.errors) {
                 reject(result.errors);
             } else {
                 let queryData = (result.data as any).updateIngredientInRecipe;
-                resolve(new Element(queryData.id, queryData.amount, new Ingredient(queryData.ingredient.id, queryData.ingredient.name)));
+                resolve(new Element(queryData.id, queryData.amount, queryData.unit, new Ingredient(queryData.ingredient.id, queryData.ingredient.name)));
             }
         });
     });
