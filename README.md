@@ -4,7 +4,7 @@ Even though this application is available on the web, the aim was to have a mobi
 To communicate more dynamically with the backend, we use [GraphQL](https://graphql.org/) for queries.
 
 ## Try the app
-You can find a production environment at https://services.eliott.pro/cleavercooks
+You can find a production environment at https://cleavercookers.github.io/
 
 ## Project management
 For the frontend and backend, we used Jira with a scrum-like approach.
