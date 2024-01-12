@@ -1,3 +1,10 @@
+/**
+ *  @file      recipt-edit-page.component.ts
+ *  @brief     recipt edit page
+ *  @author    Created by Eliott Jaquier, Mikael Juillet
+ *  @version   03.01.2024
+ */
+
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder} from "@angular/forms";
 import {Apollo} from "apollo-angular";

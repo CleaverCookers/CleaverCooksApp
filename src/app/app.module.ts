@@ -1,3 +1,10 @@
+/**
+ *  @file      app.module.ts
+ *  @brief     app modules
+ *  @author    Created by Eliott Jaquier, Mikael Juillet
+ *  @version   03.01.2024
+ */
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 

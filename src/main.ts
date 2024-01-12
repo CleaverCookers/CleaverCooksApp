@@ -1,3 +1,10 @@
+/**
+ *  @file      main.ts
+ *  @brief     main of app
+ *  @author    Created by Eliott Jaquier
+ *  @version   23.11.2023
+ */
+
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 

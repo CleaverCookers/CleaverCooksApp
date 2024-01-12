@@ -1,3 +1,10 @@
+/**
+ *  @file      graphql.module.ts
+ *  @brief     graphql module
+ *  @author    Created by Eliott Jaquier
+ *  @version   30.11.2023
+ */
+
 import {NgModule} from '@angular/core';
 import {ApolloModule, APOLLO_OPTIONS} from 'apollo-angular';
 import {ApolloClientOptions, InMemoryCache} from '@apollo/client/core';

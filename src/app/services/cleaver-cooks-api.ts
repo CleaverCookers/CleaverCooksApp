@@ -1,3 +1,10 @@
+/**
+ *  @file      cleaver-cooks-api.ts
+ *  @brief     cleaver cooks api
+ *  @author    Created by Eliott Jaquier
+ *  @version   03.01.2024
+ */
+
 import {Apollo, gql} from "apollo-angular";
 import {Recipe} from "../models/recipe";
 import {Element} from "../models/element";
