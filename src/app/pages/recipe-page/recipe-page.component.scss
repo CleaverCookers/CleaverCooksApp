@@ -1,5 +1,7 @@
-mat-icon {
- font-size: 0.9rem;
+#recipe-bar{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 #ingredients {

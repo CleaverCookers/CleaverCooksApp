@@ -1,13 +1,17 @@
 <div *ngIf="this.isInit && this.isFound">
-  <h2>
-    {{ recipe.name }}
-    <a class="button-icon"  mat-icon-button [routerLink]="['/recipes', recipe.id, 'edit']">
-      <mat-icon>edit</mat-icon>
-    </a>
-    <button class="button-icon" color="warn" mat-icon-button (click)="delete()">
-      <mat-icon>delete</mat-icon>
-    </button>
-  </h2>
+  <div id="recipe-bar">
+    <h2>
+      {{ recipe.name }}
+    </h2>
+    <div>
+      <a class="button-icon"  mat-icon-button [routerLink]="['/recipes', recipe.id, 'edit']">
+        <mat-icon>edit</mat-icon>
+      </a>
+      <button class="button-icon" color="warn" mat-icon-button (click)="delete()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
   <img mat-card-imagee src="/assets/images/default-image-recipe.jpg" alt="Default image of recipe showing ingredients" id="card-image">
 
   <p>{{ recipe.description }}</p>
@@ -32,7 +36,7 @@
 
 
   <div *ngIf="recipe.instructions != null">
-      <h3><strong>Etapes</strong></h3>
+      <h3><strong>Steps</strong></h3>
       <ul>
           <li *ngFor="let step of recipe.instructions.split('\n')" class="step">
               {{ step }}
