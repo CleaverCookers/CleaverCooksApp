@@ -7,18 +7,18 @@
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Description</mat-label>
-      <textarea matInput formControlName="description" rows="5"></textarea>
+      <textarea matInput formControlName="description" rows="4"></textarea>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Instructions</mat-label>
-      <textarea matInput formControlName="instructions" rows="10"></textarea>
+      <textarea matInput formControlName="instructions" rows="8"></textarea>
     </mat-form-field>
     <button mat-raised-button color="primary" class="button" type="submit">Save</button>
   </form>
   <br>
 
  <div>
-   <h3>Ingredients list</h3>
+   <h2>Ingredients list</h2>
    <div *ngFor="let element of recipe.elements" id="ingredients-list">
      <div id="ingredients">
        <div id="ingredient">
