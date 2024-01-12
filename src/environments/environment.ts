@@ -1,9 +1,17 @@
+/**
+ *  @file      environement.ts
+ *  @brief     dev env
+ *  @author    Created by Eliott Jaquier
+ *  @version   23.11.2023
+ */
+
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  backendApiUrl: './graphql',
 };
 
 /*

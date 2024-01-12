@@ -1,0 +1,21 @@
+<!--
+/**
+ *  @file      create-new-recipe-page.html
+ *  @brief     create new recipe page
+ *  @author    Created by Eliott Jaquier, Mikael Juillet
+ *  @version   03.01.2024
+ */
+-->
+
+<h2>Create a new recipe</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="outline">
+    <mat-label>Title</mat-label>
+    <input matInput type="text" formControlName="name">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description" rows="10"></textarea>
+  </mat-form-field>
+  <button mat-raised-button color="primary" class="button" type="submit">Save</button>
+</form>

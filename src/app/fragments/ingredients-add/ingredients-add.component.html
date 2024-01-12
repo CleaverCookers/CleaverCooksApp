@@ -1,0 +1,17 @@
+<!!--
+/**
+*  @file      ingredients-add.component.html
+*  @brief     ingredients add component
+*  @author    Created by Eliott Jaquier, Mikael Juillet
+*  @version   03.01.2024
+*/
+-->
+
+<h3>Add a new ingredient</h3>
+<form class="example-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>Title</mat-label>
+    <input matInput type="text" formControlName="title">
+  </mat-form-field>
+  <button mat-raised-button class="button" type="submit">Add</button>
+</form>

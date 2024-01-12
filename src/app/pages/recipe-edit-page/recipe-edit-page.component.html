@@ -1,0 +1,63 @@
+<!--
+/**
+ *  @file      recipt-edit-page.component.html
+ *  @brief     recipt edit page
+ *  @author    Created by Eliott Jaquier, Mikael Juillet
+ *  @version   03.01.2024
+ */
+-->
+
+<div *ngIf="this.isInit && this.isFound">
+  <h2>Modify a recipe</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline">
+      <mat-label>Title</mat-label>
+      <input matInput type="text" formControlName="name">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description" rows="4"></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Instructions</mat-label>
+      <textarea matInput formControlName="instructions" rows="8"></textarea>
+    </mat-form-field>
+    <button mat-raised-button color="primary" class="button" type="submit">Save</button>
+  </form>
+  <br>
+
+ <div>
+   <h2>Ingredients list</h2>
+   <div *ngFor="let element of recipe.elements" id="ingredients-list">
+     <div id="ingredients">
+       <div id="ingredient">
+         <span>{{ element.amount }} {{ element.unit }}</span>
+         <span>{{ element.ingredient.name }}</span>
+       </div>
+
+       <div>
+         <button class="button-icon"  mat-icon-button (click)="showEditElementBottomSheet(element)">
+           <mat-icon>edit</mat-icon>
+         </button>
+         <button class="button-icon" color="warn" mat-icon-button (click)="removeElement(element)">
+           <mat-icon>delete</mat-icon>
+         </button>
+       </div>
+     </div>
+     <mat-divider></mat-divider>
+   </div>
+
+   <a mat-icon-button (click)="showNewElementBottomSheet()" color="primary">
+     <mat-icon>add</mat-icon>
+   </a>
+ </div>
+  <!--<app-element-picker *ngIf="elementPickerDisplayed" (onSubmittedElement)="addElement($event)"></app-element-picker>-->
+</div>
+
+<div *ngIf="!this.isInit">
+  <app-loading></app-loading>
+</div>
+
+<div *ngIf="this.isInit && !this.isFound" class="centred">
+  <h2>Recipe not found!</h2>
+</div>

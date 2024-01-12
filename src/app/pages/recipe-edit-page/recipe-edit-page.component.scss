@@ -1,0 +1,36 @@
+/**
+ *  @file      recipt-edit-page.component.scss
+ *  @brief     recipt edit page
+ *  @author    Created by Eliott Jaquier, Mikael Juillet
+ *  @version   03.01.2024
+ */
+
+mat-form-field {
+  width: 100%;
+}
+
+
+#mat-icon {
+  font-size: 0.9rem;
+}
+
+#ingredients {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  #ingredient {
+    display: flex;
+    column-gap: 1rem;
+  }
+}
+
+#ingredients-list {
+  margin: 1rem 0;
+}
+
+.centred {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

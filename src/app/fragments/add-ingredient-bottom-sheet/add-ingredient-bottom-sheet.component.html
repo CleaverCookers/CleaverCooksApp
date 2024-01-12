@@ -1,0 +1,13 @@
+<!--
+/**
+ *  @file      add-ingredient-bottom-sheet.component.html
+ *  @brief     ingredient bottom sheet component
+ *  @author    Eliott Jaquier, Mikael Juillet
+ *  @version   12.01.2024
+ */
+-->
+
+<app-ingredients-picker (onSelectedIngredients)="changeIngredient($event)"></app-ingredients-picker>
+<div id="left-button">
+  <button mat-raised-button color="primary" (click)="addIngredient()">Add</button>
+</div>

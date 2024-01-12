@@ -1,0 +1,66 @@
+<!--
+/**
+ *  @file      recipt-page.component.html
+ *  @brief     recipt page
+ *  @author    Created by Eliott Jaquier, Mikael Juillet
+ *  @version   03.01.2024
+ */
+-->
+
+<div *ngIf="this.isInit && this.isFound">
+  <div id="recipe-bar">
+    <h2>
+      {{ recipe.name }}
+    </h2>
+    <div>
+      <a class="button-icon"  mat-icon-button [routerLink]="['/recipes', recipe.id, 'edit']">
+        <mat-icon>edit</mat-icon>
+      </a>
+      <button class="button-icon" color="warn" mat-icon-button (click)="delete()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+  <img mat-card-imagee src="/assets/images/default-image-recipe.jpg" alt="Default image of recipe showing ingredients" id="card-image">
+
+  <p>{{ recipe.description }}</p>
+
+  <h2 id="ingredients-title">
+    Ingredients
+    <div *ngIf="recipe.missingElements != undefined">
+      <div #thenBlock id="missing-element">
+        {{recipe.missingElements}}
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="shopping_cart" color="warn"></mat-icon>
+      </div>
+    </div>
+  </h2>
+
+  <div *ngFor="let element of recipe.elements" id="ingredients-list">
+    <div id="ingredients">
+      <span>{{ element.amount }} {{ element.unit }}</span>
+      <span>{{ element.ingredient.name }}</span>
+    </div>
+    <mat-divider></mat-divider>
+  </div>
+
+
+  <div *ngIf="recipe.instructions != null">
+      <h3><strong>Steps</strong></h3>
+      <ul>
+          <li *ngFor="let step of recipe.instructions.split('\n')" class="step">
+              {{ step }}
+          </li>
+      </ul>
+  </div>
+  <div *ngIf="recipe.instructions == null" class="centred">
+      <h2>No steps</h2>
+  </div>
+</div>
+
+<div *ngIf="!this.isInit">
+  <app-loading></app-loading>
+</div>
+
+<div *ngIf="this.isInit && !this.isFound" class="centred">
+    <h1>Recipe not found!</h1>
+</div>

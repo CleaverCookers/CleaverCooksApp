@@ -1,0 +1,46 @@
+/**
+ *  @file      recipt-page.component.scss
+ *  @brief     recipt page
+ *  @author    Created by Eliott Jaquier, Mikael Juillet
+ *  @version   03.01.2024
+ */
+
+#recipe-bar{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+#ingredients {
+  display: flex;
+  column-gap: 1rem;
+}
+
+#ingredients-list {
+  margin: 1rem 0;
+}
+
+.centred {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#card-image {
+  max-width: -webkit-fill-available;
+}
+
+#ingredients-title {
+  display: flex;
+  gap: 0.5rem;
+  #missing-element , #missing-element > mat-icon{
+    font-size: 1rem;
+    color: #f44336;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+}
+
+

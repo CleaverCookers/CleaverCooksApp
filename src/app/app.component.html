@@ -1,9 +1,16 @@
-<h1>Angular Router App</h1>
-<nav>
-  <ul>
-    <li><a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Home Page Component</a></li>
-    <li><a routerLink="/404" routerLinkActive="active" ariaCurrentWhenActive="page">Not Found Page Component</a></li>
-  </ul>
-</nav>
-<!-- The routed views render in the <router-outlet>-->
-<router-outlet></router-outlet>
+<!--
+/**
+ *  @file      app.component.html
+ *  @brief     app component
+ *  @author    Created by Eliott Jaquier, Mikael Juillet
+ *  @version   03.01.2024
+ */
+-->
+
+<app-top-bar></app-top-bar>
+<main>
+  <router-outlet></router-outlet>
+</main>
+<app-bottom-bar></app-bottom-bar>
+
+

@@ -1,0 +1,20 @@
+/**
+ *  @file      my-ingredients-page.components.scss
+ *  @brief     my ingredients page
+ *  @author    Created by Eliott Jaquier, Mikael Juillet
+ *  @version   03.01.2024
+ */
+
+
+#mat-fab {
+  right: 16px;
+  position: fixed;
+  bottom: 96px;
+}
+
+#list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
