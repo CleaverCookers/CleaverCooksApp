@@ -1,3 +1,10 @@
+/**
+ *  @file      recipe-card.component.scss             .-
+ *  @brief     recipe card component
+ *  @author    Created by Eliott Jaquier, Mikael Juillet
+ *  @version   03.01.2024
+ */
+
 mat-card {
   margin-bottom: 0.5rem;
   &:hover {
@@ -19,4 +26,8 @@ mat-card-title {
   align-items: center;
   gap: 0.3rem;
   justify-content: end;
+}
+
+mat-card-content{
+  display: flex;
 }

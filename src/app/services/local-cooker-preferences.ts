@@ -1,3 +1,10 @@
+/**
+ *  @file      local-cooker-preferences.ts
+ *  @brief     used to local prefeences
+ *  @author    Created by Eliott Jaquier
+ *  @version   03.01.2024
+ */
+
 import {Ingredient} from "../models/ingredient";
 
 /**

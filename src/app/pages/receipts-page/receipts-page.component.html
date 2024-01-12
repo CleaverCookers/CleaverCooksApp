@@ -1,6 +1,14 @@
+<!--
+/**
+ *  @file      recipts-page.component.html
+ *  @brief     recipts page
+ *  @author    Created by Eliott Jaquier, Mikael Juillet
+ *  @version   03.01.2024
+ */
+
+-->
 <h2>Suggested recipes</h2>
 <h3>A list of recipes based on your ingredient list</h3>
-
 <div *ngIf="recipes != undefined">
   <div *ngFor="let recipe of recipes" >
     <app-recipe-card [recipe]="recipe"></app-recipe-card>

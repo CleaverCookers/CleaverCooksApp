@@ -1,6 +1,6 @@
 /**
- *  @file      create-new-recipe-page.ts
- *  @brief     create new recipe page
+ *  @file      recipts-page.component.ts
+ *  @brief     recipts page
  *  @author    Created by Eliott Jaquier, Mikael Juillet
  *  @version   03.01.2024
  */

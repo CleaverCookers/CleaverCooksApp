@@ -1,3 +1,10 @@
+/**
+ *  @file      search-page.component.ts
+ *  @brief     search page
+ *  @author    Created by Eliott Jaquier, Mikael Juillet
+ *  @version   03.01.2024
+ */
+
 import { Component, OnInit } from '@angular/core';
 import {Apollo} from "apollo-angular";
 import {Recipe} from "../../models/recipe";
