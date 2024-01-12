@@ -7,5 +7,5 @@
 
 export const environment = {
   production: true,
-  backendApiUrl: 'https://services.eliott.pro/graphql',
+  backendApiUrl: 'https://cleavercooks.eliott.pro/graphql',
 };
