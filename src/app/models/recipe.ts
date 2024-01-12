@@ -1,3 +1,10 @@
+/**
+ *  @file      recipe.ts
+ *  @brief     Used to construct recipe
+ *  @author    Created by Eliott Jaquier
+ *  @version   03.01.2024
+ */
+
 import {Ingredient} from "./ingredient";
 import {Element} from "./element";
 

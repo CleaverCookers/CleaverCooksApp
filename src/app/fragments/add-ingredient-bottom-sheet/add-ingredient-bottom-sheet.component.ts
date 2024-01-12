@@ -1,3 +1,10 @@
+/**
+ *  @file      add-ingredient-bottom-sheet.component.ts
+ *  @brief     ingredient bottom sheet component
+ *  @author    Created by Eliott Jaquier
+ *  @version   12.01.2024
+ */
+
 import { Component, OnInit } from '@angular/core';
 import {MatBottomSheetRef} from "@angular/material/bottom-sheet";
 import {Element} from "../../models/element";
@@ -19,10 +26,17 @@ export class AddIngredientBottomSheetComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Change the currently picked ingredient
+   * @param ingredient
+   */
   changeIngredient(ingredient: Ingredient) {
     this.ingredient = ingredient;
   }
 
+  /**
+   * Validate this bottom sheet and close it (passing the current ingredient to the emitter)
+   */
   addIngredient() {
     if (this.ingredient == undefined) return;
     this.dialogRef.dismiss(this.ingredient);

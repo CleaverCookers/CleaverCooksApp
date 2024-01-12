@@ -1,3 +1,10 @@
+/**
+ *  @file      cleaver-cooks-api.ts
+ *  @brief     cleaver cooks api
+ *  @author    Created by Eliott Jaquier
+ *  @version   03.01.2024
+ */
+
 import {Apollo, gql} from "apollo-angular";
 import {Recipe} from "../models/recipe";
 import {Element} from "../models/element";
@@ -10,6 +17,9 @@ export class CleaverCooksApi {
   public constructor(private apollo: Apollo) {
   }
 
+  /**
+   * Get the full list of ingredients
+   */
   public getAllIngredients(): Promise<Ingredient[]> {
     return new Promise((resolve, reject) => {
       try {
@@ -36,6 +46,10 @@ export class CleaverCooksApi {
     });
   }
 
+  /**
+   * Get one ingredient by id or reject the promise
+   * @param id
+   */
   public getIngredient(id: string): Promise<Ingredient> {
     return new Promise((resolve, reject) => {
       try {
@@ -64,6 +78,9 @@ export class CleaverCooksApi {
     });
   }
 
+  /**
+   * Get the full list of recipes
+   */
   public getAllRecipes(): Promise<Recipe[]> {
     return new Promise((resolve, reject) => {
       try {
@@ -105,6 +122,10 @@ export class CleaverCooksApi {
     });
   }
 
+  /**
+   * Get the list of recipes that match ingredients local list of ids. Returns the list of the favorite recipe (with the least number of missing ingredients) to the one with the most missing ingredients.
+   * @param ingredientsLocalIds
+   */
   public getRecipesRankedByIngredients(ingredientsLocalIds:number[]): Promise<Recipe[]> {
     return new Promise((resolve, reject) => {
       try {
@@ -139,6 +160,10 @@ export class CleaverCooksApi {
     });
   }
 
+  /**
+   * Get the recipe by id or reject the promise
+   * @param id
+   */
   public getRecipe(id: string): Promise<Recipe|null> {
     return new Promise((resolve, reject) => {
       try {
@@ -183,6 +208,11 @@ export class CleaverCooksApi {
     });
   }
 
+  /**
+   * Create an ingredient with the given properties
+   * @param name
+   * @return - The ingredient model created
+   */
   public createIngredient(name: string):Promise<Ingredient> {
     return new Promise((resolve, reject) => {
       const query = gql`
@@ -203,6 +233,10 @@ export class CleaverCooksApi {
     });
   }
 
+  /**
+   * Delete an ingredient by id or reject the promise
+   * @param id
+   */
   public deleteIngredient(id: string) {
     return new Promise((resolve, reject) => {
       const query = gql`
@@ -222,6 +256,11 @@ export class CleaverCooksApi {
     });
   }
 
+  /**
+   * Update an ingredient with the given properties by it's id or reject the promise
+   * @param id
+   * @param name
+   */
   public updateIngredient(id: string, name: string) {
     return new Promise((resolve, reject) => {
       const query = gql`
@@ -241,6 +280,12 @@ export class CleaverCooksApi {
     });
   }
 
+  /**
+   * Create a recipe with the given parameters
+   * @param name
+   * @param description
+   * @param instructions
+   */
   public createRecipe(name: string, description: string|undefined|null, instructions: string|undefined|null) : Promise<Recipe>{
     return new Promise((resolve, reject) => {
       const query = gql`
@@ -264,6 +309,14 @@ export class CleaverCooksApi {
     });
   }
 
+  /**
+   * Update the recipe with the given properties
+   * @param id
+   * @param name
+   * @param description
+   * @param instructions
+   * @return The update recipe model
+   */
   public updateRecipe(id: string, name: string, description: string|undefined|null, instructions: string|undefined|null) : Promise<Recipe> {
     return new Promise((resolve, reject) => {
       const query = gql`
@@ -287,6 +340,10 @@ export class CleaverCooksApi {
     });
   }
 
+  /**
+   * Delete a recipe by id or reject the promise
+   * @param id
+   */
   public deleteRecipe(id: string) {
     return new Promise((resolve, reject) => {
       const query = gql`
@@ -304,6 +361,13 @@ export class CleaverCooksApi {
     });
   }
 
+  /**
+   * Add a ingredient to the recipe (and precise the amonunt used)
+   * @param recipeId
+   * @param ingredientId
+   * @param amount
+   * @return The element of the recipe
+   */
   public addIngredientToRecipe(recipeId: string, ingredientId: string, amount: number): Promise<Element> {
     return new Promise((resolve, reject) => {
       const query = gql`
@@ -329,6 +393,10 @@ export class CleaverCooksApi {
     });
   }
 
+  /**
+   * Remove an ingredient from the recipe by it's liaison ID
+   * @param elementId
+   */
   public removeIngredientFromRecipe(elementId: string) {
     return new Promise((resolve, reject) => {
       const query = gql`
@@ -346,6 +414,12 @@ export class CleaverCooksApi {
     });
   }
 
+  /**
+   * Update an ingredient by it's liaison id and the new amount
+   * @param elementId
+   * @param amount
+   * @return The updated element / liaison
+   */
   public updateIngredientInRecipe(elementId: string, amount: number) : Promise<Element> {
     return new Promise((resolve, reject) => {
       const query = gql`

@@ -1,3 +1,10 @@
+/**
+ *  @file      element-bottom-sheet.component.ts
+ *  @brief     element bottom sheet
+ *  @author    Created by Eliott Jaquier, Mikael Juillet
+ *  @version   03.01.2024
+ */
+
 import {Component, EventEmitter, Inject, Output} from '@angular/core';
 import {Ingredient} from "../../models/ingredient";
 import {FormBuilder} from "@angular/forms";
@@ -26,11 +33,18 @@ export class ElementBottomSheetComponent {
   public form;
   public pickerDisplayed = false
 
+  /**
+   * Change the currently picked ingredient and close the selection picker
+   * @param ingredient
+   */
   changeIngredient(ingredient:Ingredient){
     this.ingredient = ingredient;
     this.pickerDisplayed = false;
   }
 
+  /**
+   * When the form is submitted via the confirmation button, close the dialog and pass the element (quantity + ingredient) to the emitter
+   */
   async onSubmit() {
     if (this.form.value.quantity == null || this.ingredient == undefined) return;
     this.dialogRef.dismiss(new Element('',this.form.value.quantity,this.ingredient));

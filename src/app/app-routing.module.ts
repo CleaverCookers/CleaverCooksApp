@@ -1,3 +1,10 @@
+/**
+ *  @file      app-routing.module.ts
+ *  @brief     app routing module
+ *  @author    Created by Eliott Jaquier
+ *  @version   03.01.2024
+ */
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';

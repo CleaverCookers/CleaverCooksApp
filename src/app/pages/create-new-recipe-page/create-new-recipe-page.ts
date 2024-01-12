@@ -1,3 +1,10 @@
+/**
+ *  @file      create-new-recipe-page.ts
+ *  @brief     create new recipe page
+ *  @author    Created by Eliott Jaquier, Mikael Juillet
+ *  @version   03.01.2024
+ */
+
 import { Component } from '@angular/core';
 import {FormBuilder} from "@angular/forms";
 import {Apollo} from "apollo-angular";
@@ -23,6 +30,9 @@ export class CreateNewRecipePage {
   });
   private api:CleaverCooksApi;
 
+  /**
+   * When the form is submitted, create the recipe and redirect to the edit page
+   */
   async onSubmit() {
       if (this.form.value.name == null) return;
       let recipe = await this.api.createRecipe(this.form.value.name, this.form.value.description, null);
