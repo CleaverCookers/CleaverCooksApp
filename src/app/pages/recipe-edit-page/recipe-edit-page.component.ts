@@ -77,6 +77,7 @@ export class RecipeEditPageComponent implements OnInit{
           elementModified.id = element.id;
           this.editElement(elementModified).then(()=> {
             element.amount = elementModified.amount;
+            element.unit = elementModified.unit;
           });
         }else{
           this.removeElement(element).then(()=> {
@@ -92,7 +93,7 @@ export class RecipeEditPageComponent implements OnInit{
    * @param element
    */
   async addElement(element: Element) {
-    let elementAdded = await this.api.addIngredientToRecipe(this.recipe.id, element.ingredient.id, element.amount);
+    let elementAdded = await this.api.addIngredientToRecipe(this.recipe.id, element.ingredient.id, element.amount, element.unit);
     this.recipe.elements.push(elementAdded);
   }
 
@@ -101,7 +102,7 @@ export class RecipeEditPageComponent implements OnInit{
    * @param element
    */
   async editElement(element: Element) {
-    let elementAdded = await this.api.updateIngredientInRecipe(element.id, element.amount)
+    let elementAdded = await this.api.updateIngredientInRecipe(element.id, element.amount, element.unit)
   }
 
   /**

@@ -28,6 +28,7 @@ class Receipe{
 
 class Element{
     - amount : String
+    - unit : String
     - ingredient : Ingredient
 }
 

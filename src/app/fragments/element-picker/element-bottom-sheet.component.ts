@@ -27,6 +27,7 @@ export class ElementBottomSheetComponent {
     this.ingredient = data?.ingredient;
     this.form = this.formBuilder.group({
       quantity: data?.amount ?? 30,
+      unit: data?.unit ?? 'gr'
     });
   }
   public ingredient:Ingredient|undefined;
@@ -46,7 +47,7 @@ export class ElementBottomSheetComponent {
    * When the form is submitted via the confirmation button, close the dialog and pass the element (quantity + ingredient) to the emitter
    */
   async onSubmit() {
-    if (this.form.value.quantity == null || this.ingredient == undefined) return;
-    this.dialogRef.dismiss(new Element('',this.form.value.quantity,this.ingredient));
+    if (this.form.value.quantity == null || this.ingredient == undefined || this.form.value.unit == null) return;
+    this.dialogRef.dismiss(new Element('',this.form.value.quantity, this.form.value.unit,this.ingredient));
   }
 }
