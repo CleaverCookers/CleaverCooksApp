@@ -46,15 +46,12 @@ To have a mobile application we have added capacitor which is used to build a we
 Prerequisite :
 Android Studio  : https://developer.android.com/studio
 ### Build
-Don't forget to run `npm run build` before adding android.
-Then add android app.
-`npx cap add android`
-### Open on Android Studio
-Open on android studio.
-`npx cap open android`
+Don't forget to run `ng build` before adding android.
 ### Sync 
 For updating the app you can use sync with the new build make. 
 `npx cap sync android`
-
+### Open on Android Studio
+Open on android studio.
+`npx cap open android`
 ### Further help
 https://capacitorjs.com/docs/android
