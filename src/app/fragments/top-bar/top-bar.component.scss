@@ -1,9 +1,15 @@
-h1, svg path  {
+mat-toolbar{
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+}
+span, svg path  {
   background: linear-gradient(67deg, #F24E29 15.58%, #F28929 81.09%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: flex;
   align-items: center;
-  margin:1rem;
+}
+svg{
+  margin: 5px;
 }
