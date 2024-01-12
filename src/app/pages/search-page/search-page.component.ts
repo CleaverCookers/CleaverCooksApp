@@ -19,6 +19,7 @@ export class SearchPageComponent implements OnInit {
   public cachedRecipes: Recipe[] = []
   public recipes: Recipe[] = []
   public search: string = "";
+  public isLoading: boolean = true;
 
   /**
    * Cache all the recipes
@@ -40,5 +41,6 @@ export class SearchPageComponent implements OnInit {
     this.recipes = this.cachedRecipes.filter((recipe)=>{
       return recipe.name.toLowerCase().includes(this.search.toLowerCase());
     });
+    this.isLoading = false;
   }
 }

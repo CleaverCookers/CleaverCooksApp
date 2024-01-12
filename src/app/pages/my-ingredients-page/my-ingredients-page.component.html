@@ -9,6 +9,9 @@
     </mat-list-item>
     <mat-divider></mat-divider>
   </mat-list>
+  <div *ngIf="this.isLoading">
+    <app-loading></app-loading>
+  </div>
   <button id="mat-fab" mat-fab color="primary" (click)="showAddIngredientBottomSheet()">
     <mat-icon>add</mat-icon>
   </button>

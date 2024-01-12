@@ -6,7 +6,10 @@
     <mat-icon matSuffix>search</mat-icon>
   </mat-form-field>
 </p>
-<div *ngIf="recipes != undefined">
+<div *ngIf="isLoading">
+  <app-loading></app-loading>
+</div>
+<div *ngIf="!isLoading">
   <div *ngFor="let recipe of recipes" >
     <app-recipe-card [recipe]="recipe"></app-recipe-card>
   </div>

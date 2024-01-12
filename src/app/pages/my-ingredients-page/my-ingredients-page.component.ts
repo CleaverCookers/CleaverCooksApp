@@ -27,6 +27,7 @@ export class MyIngredientsPageComponent implements OnInit {
   constructor(private apollo : Apollo, private bottomSheet: MatBottomSheet) { }
 
   public ingredients:Ingredient[] = [];
+  public isLoading = true;
 
   /**
    * Get the list of my ingredients from the cached local id
@@ -34,6 +35,7 @@ export class MyIngredientsPageComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     let allIngredients = await new CleaverCooksApi(this.apollo).getAllIngredients();
     this.ingredients = LocalCookerPreferences.getMyIngredients(allIngredients);
+    this.isLoading = false;
   }
 
   /**

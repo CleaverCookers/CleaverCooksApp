@@ -44,9 +44,8 @@
   </div>
 </div>
 
-<div *ngIf="!this.isInit" class="centred">
-    <h1>Loading...</h1>
-    <mat-spinner></mat-spinner>
+<div *ngIf="!this.isInit">
+  <app-loading></app-loading>
 </div>
 
 <div *ngIf="this.isInit && !this.isFound" class="centred">
