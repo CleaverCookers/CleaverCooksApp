@@ -41,6 +41,7 @@ import {MatCardModule} from "@angular/material/card";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 import {RecipeCardComponent} from "./fragments/recipe-card/recipe-card.component";
+import { LoadingComponent } from './fragments/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import {RecipeCardComponent} from "./fragments/recipe-card/recipe-card.component
     TopBarComponent,
     RecipeEditPageComponent,
     RecipePageComponent,
-    AddIngredientBottomSheetComponent
+    AddIngredientBottomSheetComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

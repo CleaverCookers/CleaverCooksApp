@@ -5,6 +5,12 @@
  *  @version   03.01.2024
  */
 
+#recipe-bar{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
 #ingredients {
   display: flex;
   column-gap: 1rem;

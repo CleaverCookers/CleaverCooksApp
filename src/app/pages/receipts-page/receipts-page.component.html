@@ -7,15 +7,18 @@
  */
 
 -->
-
-<h2>Recipes</h2>
-<div *ngIf="recipes == undefined" id="recipe-not-found">
-  No recipe found
-</div>
+<h2>Suggested recipes</h2>
+<h3>A list of recipes based on your ingredient list</h3>
 <div *ngIf="recipes != undefined">
   <div *ngFor="let recipe of recipes" >
     <app-recipe-card [recipe]="recipe"></app-recipe-card>
   </div>
+</div>
+<div *ngIf="recipes?.length == 0" id="recipe-not-found">
+  No recipe to suggest... Try adding ingredients to increase your chances of finding the perfect recipe!
+</div>
+<div *ngIf="recipes == undefined">
+  <app-loading></app-loading>
 </div>
 <a mat-fab color="primary" routerLink="/recipes/new" id="mat-fab">
   <mat-icon>add</mat-icon>

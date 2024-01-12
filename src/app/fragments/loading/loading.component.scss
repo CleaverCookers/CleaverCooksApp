@@ -1,0 +1,9 @@
+div{
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: calc(50% - 100px);
+  width: calc(100% - 32px);
+}
