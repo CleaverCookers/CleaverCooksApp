@@ -3,5 +3,10 @@
       "target": "http://localhost:3000",
       "secure": false,
       "changeOrigin": true
+  },
+  "/upload": {
+      "target": "https://cleavercooks.eliott.pro/upload",
+      "secure": true,
+      "changeOrigin": true
   }
 }

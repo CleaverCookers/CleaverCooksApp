@@ -12,6 +12,7 @@
 export const environment = {
   production: false,
   backendApiUrl: './graphql',
+  uploadApiUrl: './upload/imgupload',
 };
 
 /*
