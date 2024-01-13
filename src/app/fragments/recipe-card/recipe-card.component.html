@@ -9,7 +9,8 @@
 
 <mat-card routerLink="/recipes/{{recipe?.id}}">
   <mat-card-title>{{recipe?.name}}</mat-card-title>
-  <img src="/assets/images/default-image-recipe.jpg" alt="Default image of recipe showing ingredients" id="card-image">
+  <img src="/assets/images/default-image-recipe.jpg" *ngIf="recipe?.image == null" alt="Default image of recipe showing ingredients" class="card-image">
+  <img [src]="recipe?.image" *ngIf="recipe?.image != null" alt="Default image of recipe showing ingredients" class="card-image">
   <mat-card-content>
     <p>
       {{recipe?.description}}
