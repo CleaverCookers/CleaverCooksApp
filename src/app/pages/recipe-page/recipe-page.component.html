@@ -21,8 +21,8 @@
       </button>
     </div>
   </div>
-  <img mat-card-image src="/assets/images/default-image-recipe.jpg" *ngIf="recipe.image == null" alt="Default image of recipe showing ingredients" class="card-image">
-  <img mat-card-image [src]="recipe.image" *ngIf="recipe.image != null" alt="Default image of recipe showing ingredients" class="card-image">
+  <img src="/assets/images/default-image-recipe.jpg" *ngIf="recipe.image == null" alt="Default image of recipe showing ingredients" class="card-image">
+  <img [src]="recipe.image" *ngIf="recipe.image != null" class="card-image">
 
   <p>{{ recipe.description }}</p>
 

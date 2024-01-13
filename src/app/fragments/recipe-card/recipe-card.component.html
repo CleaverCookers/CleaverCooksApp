@@ -12,13 +12,17 @@
   <img src="/assets/images/default-image-recipe.jpg" *ngIf="recipe?.image == null" alt="Default image of recipe showing ingredients" class="card-image">
   <img [src]="recipe?.image" *ngIf="recipe?.image != null" alt="Default image of recipe showing ingredients" class="card-image">
   <mat-card-content>
-    <p>
-      {{recipe?.description}}
-    </p>
-    <div *ngIf="recipe?.missingElements != undefined">
-      <div #thenBlock id="missing-element">
-        {{recipe?.missingElements}}
-        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="shopping_cart" color="warn"></mat-icon>
+    <div class="card-infos">
+      <div>
+        <p>
+          {{recipe?.description}}
+        </p>
+      </div>
+      <div *ngIf="recipe?.missingElements != undefined">
+        <div #thenBlock id="missing-element">
+          {{recipe?.missingElements}}
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="shopping_cart" color="warn"></mat-icon>
+        </div>
       </div>
     </div>
   </mat-card-content>
