@@ -12,6 +12,6 @@ import {Element} from "./element";
  * A recipe is a series of instructions linked with ingredients (the link includes their quantity).
  */
 export class Recipe {
-  constructor(public id: string, public name: string, public description: string, public instructions: string, public elements: Element[], public missingElements: number | null = null) {
+  constructor(public id: string, public name: string, public description: string, public instructions: string, public image: string|null, public elements: Element[], public missingElements: number | null = null) {
   }
 }

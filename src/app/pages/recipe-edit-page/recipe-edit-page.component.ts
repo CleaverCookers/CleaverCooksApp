@@ -27,7 +27,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 export class RecipeEditPageComponent implements OnInit{
   constructor(private formBuilder: FormBuilder, apollo:Apollo, route: ActivatedRoute,private _bottomSheet: MatBottomSheet, private _snackBar: MatSnackBar) {
     this.api = new CleaverCooksApi(apollo);
-    this.recipe = new Recipe(route.snapshot.params['id'],"","","",[]);
+    this.recipe = new Recipe(route.snapshot.params['id'],"","","", null,[]);
     this.form = this.formBuilder.group(this.recipe);
   }
 
@@ -55,11 +55,12 @@ export class RecipeEditPageComponent implements OnInit{
    * Update the recipe when form submitted
    */
   async onSubmit() {
-    if (this.form.value.name == null) return;
-    let modifiedRecipe = await this.api.updateRecipe(this.recipe.id, this.form.value.name, this.form.value.description, this.form.value.instructions);
+    if (this.form.value.name == null || this.form.value.image == undefined) return;
+    let modifiedRecipe = await this.api.updateRecipe(this.recipe.id, this.form.value.name, this.form.value.description, this.form.value.instructions, this.form.value.image);
     this.recipe.name = modifiedRecipe.name;
     this.recipe.description = modifiedRecipe.description;
     this.recipe.instructions = modifiedRecipe.instructions;
+    this.recipe.image = modifiedRecipe.image;
     this.openSnackBar('Recipe Updated', 'OK')
   }
 
