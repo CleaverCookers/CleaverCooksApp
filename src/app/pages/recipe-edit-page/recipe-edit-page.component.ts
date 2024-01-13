@@ -27,8 +27,9 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 export class RecipeEditPageComponent implements OnInit{
   constructor(private formBuilder: FormBuilder, apollo:Apollo, route: ActivatedRoute,private _bottomSheet: MatBottomSheet, private _snackBar: MatSnackBar) {
     this.api = new CleaverCooksApi(apollo);
-    this.recipe = new Recipe(route.snapshot.params['id'],"","","",[]);
+    this.recipe = new Recipe(route.snapshot.params['id'],"","","", null,[]);
     this.form = this.formBuilder.group(this.recipe);
+    this.imgUrl = this.recipe.image;
   }
 
   /**
@@ -48,6 +49,7 @@ export class RecipeEditPageComponent implements OnInit{
   public recipe:Recipe;
   public isFound:boolean = false;
   public isInit:boolean = false;
+  private imgUrl:string | null = null;
 
   private api:CleaverCooksApi;
 
@@ -56,10 +58,11 @@ export class RecipeEditPageComponent implements OnInit{
    */
   async onSubmit() {
     if (this.form.value.name == null) return;
-    let modifiedRecipe = await this.api.updateRecipe(this.recipe.id, this.form.value.name, this.form.value.description, this.form.value.instructions);
+    let modifiedRecipe = await this.api.updateRecipe(this.recipe.id, this.form.value.name, this.form.value.description, this.form.value.instructions, this.imgUrl);
     this.recipe.name = modifiedRecipe.name;
     this.recipe.description = modifiedRecipe.description;
     this.recipe.instructions = modifiedRecipe.instructions;
+    this.recipe.image = modifiedRecipe.image;
     this.openSnackBar('Recipe Updated', 'OK')
   }
 
@@ -138,5 +141,9 @@ export class RecipeEditPageComponent implements OnInit{
     this._snackBar.open(message, action,{
       duration: 3000
     });
+  }
+
+  onImageUrlChanged(url:string) {
+    this.imgUrl = url;
   }
 }

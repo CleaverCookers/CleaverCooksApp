@@ -1,0 +1,13 @@
+<div id="image-upload">
+  <p>Image</p>
+  <img src="/assets/images/default-image-recipe.jpg" *ngIf="image==null" alt="Default image of recipe showing ingredients">
+  <img [src]="temporaryImageUrl" *ngIf="temporaryImageUrl!=null">
+  <img [src]="imgUrl" *ngIf="imgUrl!=null">
+  <input #imageInput hidden="true" type="file" onclick="this.value=null" accept="image/*" (change)="onFileSelected($event)">
+  <div>
+    <button mat-flat-button color="secondary" (click)="imageInput.click()" *ngIf="!isUploading">Replace Image</button>
+    <div *ngIf="isUploading">
+      <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    </div>
+  </div>
+</div>

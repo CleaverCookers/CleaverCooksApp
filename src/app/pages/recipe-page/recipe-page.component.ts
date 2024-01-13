@@ -25,7 +25,7 @@ export class RecipePageComponent implements OnInit {
 
   constructor(apollo:Apollo, route: ActivatedRoute, private router:Router) {
     this.api = new CleaverCooksApi(apollo);
-    this.recipe = new Recipe(route.snapshot.params['id'],"","","",[]);
+    this.recipe = new Recipe(route.snapshot.params['id'],"","","", null,[]);
   }
 
   public recipe:Recipe;
