@@ -32,7 +32,8 @@ export class CleaverCooksApi {
                     }
                 `;
         this.apollo.watchQuery({
-          query: query
+          query: query,
+          fetchPolicy: "network-only"
         }).valueChanges.subscribe(({data, error}) => {
           if (error) {
             reject(error);
@@ -63,6 +64,7 @@ export class CleaverCooksApi {
                 `;
         this.apollo.watchQuery({
           query: query,
+          fetchPolicy: "network-only",
           variables: {id: id}
         }).valueChanges.subscribe(({data, error}) => {
           if (error) {
@@ -105,7 +107,8 @@ export class CleaverCooksApi {
                     }
                 `;
         this.apollo.watchQuery({
-          query: query
+          query: query,
+          fetchPolicy: "network-only"
         }).valueChanges.subscribe(({data, error}) => {
           if (error) {
             reject(error);
@@ -146,6 +149,7 @@ export class CleaverCooksApi {
                 `;
         this.apollo.watchQuery({
           query: query,
+          fetchPolicy: "network-only",
           variables: {ingredientIds: ingredientsLocalIds}
         }).valueChanges.subscribe(({data, error}) => {
           if (error) {
@@ -192,6 +196,7 @@ export class CleaverCooksApi {
                 `;
         this.apollo.watchQuery({
           query: query,
+          fetchPolicy: "network-only",
           variables: {id: id}
         }).valueChanges.subscribe(({data, error}) => {
           if (error) {
