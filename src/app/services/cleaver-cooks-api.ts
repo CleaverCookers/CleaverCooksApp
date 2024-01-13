@@ -237,7 +237,7 @@ export class CleaverCooksApi {
           reject(result.errors);
         } else {
           let queryData = (result.data as any).createIngredient;
-          resolve(new Ingredient(queryData.id,queryData.name));
+          resolve(new Ingredient(queryData.id,name));
         }
       });
     });
