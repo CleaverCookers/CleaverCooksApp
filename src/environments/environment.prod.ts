@@ -8,4 +8,5 @@
 export const environment = {
   production: true,
   backendApiUrl: 'https://cleavercooks.eliott.pro/graphql',
+  uploadApiUrl: 'https://cleavercooks.eliott.pro/upload/imgupload',
 };

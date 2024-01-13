@@ -8,7 +8,7 @@
 -->
 
 <div *ngIf="this.isInit && this.isFound">
-  <h2>Modify a recipe</h2>
+  <h2>Modify recipe details</h2>
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <mat-form-field appearance="outline">
       <mat-label>Title</mat-label>
@@ -22,12 +22,15 @@
       <mat-label>Instructions</mat-label>
       <textarea matInput formControlName="instructions" rows="8"></textarea>
     </mat-form-field>
-    <button mat-raised-button color="primary" class="button" type="submit">Save</button>
+    <app-image-upload (onImageUploaded)="onImageUrlChanged($event)" [imgUrl]="recipe.image"></app-image-upload>
+    <div class="left">
+      <button mat-raised-button color="primary" class="button" type="submit">Save</button>
+    </div>
   </form>
   <br>
 
  <div>
-   <h2>Ingredients list</h2>
+   <h2>Modify ingredients list</h2>
    <div *ngFor="let element of recipe.elements" id="ingredients-list">
      <div id="ingredients">
        <div id="ingredient">
@@ -47,9 +50,11 @@
      <mat-divider></mat-divider>
    </div>
 
+   <div class="left">
    <a mat-icon-button (click)="showNewElementBottomSheet()" color="primary">
      <mat-icon>add</mat-icon>
    </a>
+   </div>
  </div>
   <!--<app-element-picker *ngIf="elementPickerDisplayed" (onSubmittedElement)="addElement($event)"></app-element-picker>-->
 </div>

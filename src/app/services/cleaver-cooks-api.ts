@@ -32,7 +32,8 @@ export class CleaverCooksApi {
                     }
                 `;
         this.apollo.watchQuery({
-          query: query
+          query: query,
+          fetchPolicy: "network-only"
         }).valueChanges.subscribe(({data, error}) => {
           if (error) {
             reject(error);
@@ -63,6 +64,7 @@ export class CleaverCooksApi {
                 `;
         this.apollo.watchQuery({
           query: query,
+          fetchPolicy: "network-only",
           variables: {id: id}
         }).valueChanges.subscribe(({data, error}) => {
           if (error) {
@@ -98,20 +100,22 @@ export class CleaverCooksApi {
                         }
                         id
                         instructions
+                        image
                         name
                         description
                       }
                     }
                 `;
         this.apollo.watchQuery({
-          query: query
+          query: query,
+          fetchPolicy: "network-only"
         }).valueChanges.subscribe(({data, error}) => {
           if (error) {
             reject(error);
           } else {
             let queryData = (data as any).getAllRecipes;
-            resolve(queryData.map((data: { id: string; name: string; description: string; instructions: string; elements: { id: string; amount: number; unit: string; ingredient: { id: string; name: string; }; }[]; }) => {
-              return new Recipe(data.id, data.name, data.description, data.instructions, data.elements.map((data)=> {
+            resolve(queryData.map((data: { id: string; name: string; description: string; instructions: string; image: string; elements: { id: string; amount: number; unit: string; ingredient: { id: string; name: string; }; }[]; }) => {
+              return new Recipe(data.id, data.name, data.description, data.instructions, data.image, data.elements.map((data)=> {
                 return new Element(data.id, data.amount, data.unit,  new Ingredient(data.ingredient.id, data.ingredient.name))
               }));
             }));
@@ -137,6 +141,7 @@ export class CleaverCooksApi {
                         id
                         ingredientCount
                         instructions
+                        image
                         missingIngredientCount
                         name
                       }
@@ -144,14 +149,15 @@ export class CleaverCooksApi {
                 `;
         this.apollo.watchQuery({
           query: query,
+          fetchPolicy: "network-only",
           variables: {ingredientIds: ingredientsLocalIds}
         }).valueChanges.subscribe(({data, error}) => {
           if (error) {
             reject(error);
           } else {
             let queryData = (data as any).getRecipesByIngredients;
-            resolve(queryData.map((data: { id: string; name: string; description: string; instructions: string; missingIngredientCount:number}) => {
-              return new Recipe(data.id, data.name, data.description, data.instructions, [], data.missingIngredientCount);
+            resolve(queryData.map((data: { id: string; name: string; description: string; instructions: string; image: string; missingIngredientCount:number}) => {
+              return new Recipe(data.id, data.name, data.description, data.instructions, data.image, [], data.missingIngredientCount);
             }));
           }
         });
@@ -182,6 +188,7 @@ export class CleaverCooksApi {
                         }
                         id
                         instructions
+                        image
                         name
                         description
                       }
@@ -189,6 +196,7 @@ export class CleaverCooksApi {
                 `;
         this.apollo.watchQuery({
           query: query,
+          fetchPolicy: "network-only",
           variables: {id: id}
         }).valueChanges.subscribe(({data, error}) => {
           if (error) {
@@ -199,7 +207,7 @@ export class CleaverCooksApi {
               resolve(null);
               return;
             }
-            resolve(new Recipe(queryData.id, queryData.name, queryData.description, queryData.instructions, queryData.elements.map((data: { id: string; amount: number; unit:string; ingredient: { id: string; name: string; }; }) => {
+            resolve(new Recipe(queryData.id, queryData.name, queryData.description, queryData.instructions, queryData.image, queryData.elements.map((data: { id: string; amount: number; unit:string; ingredient: { id: string; name: string; }; }) => {
               return new Element(data.id, data.amount, data.unit, new Ingredient(data.ingredient.id, data.ingredient.name));
             })));
           }
@@ -229,7 +237,7 @@ export class CleaverCooksApi {
           reject(result.errors);
         } else {
           let queryData = (result.data as any).createIngredient;
-          resolve(new Ingredient(queryData.id,queryData.name));
+          resolve(new Ingredient(queryData.id,name));
         }
       });
     });
@@ -305,7 +313,7 @@ export class CleaverCooksApi {
           reject(result.errors);
         } else {
           let queryData = (result.data as any).createRecipe;
-          resolve(new Recipe(queryData.id, queryData.name, queryData.description, queryData.instructions, []));
+          resolve(new Recipe(queryData.id, queryData.name, queryData.description, queryData.instructions, null, []));
         }
       });
     });
@@ -317,26 +325,28 @@ export class CleaverCooksApi {
    * @param name
    * @param description
    * @param instructions
+   * @param image
    * @return The update recipe model
    */
-  public updateRecipe(id: string, name: string, description: string|undefined|null, instructions: string|undefined|null) : Promise<Recipe> {
+  public updateRecipe(id: string, name: string, description: string|undefined|null, instructions: string|undefined|null, image:string|null) : Promise<Recipe> {
     return new Promise((resolve, reject) => {
       const query = gql`
-              mutation UpdateRecipe($id: ID!, $name: String!, $instructions: String, $description: String) {
-                updateRecipe(id: $id, name: $name, instructions: $instructions, description: $description) {
+              mutation UpdateRecipe($id: ID!, $name: String!, $instructions: String, $image: String, $description: String) {
+                updateRecipe(id: $id, name: $name, instructions: $instructions, image: $image, description: $description) {
                   id
                   description
                   name
                   instructions
+                  image
                 }
               }
           `;
-      this.apollo.mutate({mutation: query, variables: {id: id, name: name, instructions: instructions, description: description}}).subscribe(result => {
+      this.apollo.mutate({mutation: query, variables: {id: id, name: name, instructions: instructions, image: image, description: description}}).subscribe(result => {
         if (result.errors) {
           reject(result.errors);
         } else {
           let queryData = (result.data as any).updateRecipe;
-          resolve(new Recipe(queryData.id, queryData.name, queryData.description, queryData.instructions, []));
+          resolve(new Recipe(queryData.id, queryData.name, queryData.description, queryData.instructions, queryData.image, []));
         }
       });
     });
