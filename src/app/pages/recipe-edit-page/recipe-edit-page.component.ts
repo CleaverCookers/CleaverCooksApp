@@ -41,6 +41,7 @@ export class RecipeEditPageComponent implements OnInit{
     this.isFound = recipe != null;
     if(this.isFound){
       this.recipe = recipe!;
+      this.imgUrl = this.recipe.image;
       this.form = this.formBuilder.group(this.recipe);
     }
   }

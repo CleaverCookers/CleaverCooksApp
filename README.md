@@ -46,7 +46,7 @@ To have a mobile application we have added capacitor which is used to build a we
 Prerequisite :
 Android Studio  : https://developer.android.com/studio
 ### Build
-Don't forget to run `ng build` before adding android.
+Run `ng build --configuration=production` to build the application in production mode. It will replace all the development url with the production servers.
 ### Sync 
 For updating the app you can use sync with the new build make. 
 `npx cap sync android`
